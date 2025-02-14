@@ -8,6 +8,7 @@ enum custom_layers {
     NUM,    // Num pad
 
     NEO1,   // Poor man's Neo layer 1
+    NEO2,   // Poor man's Neo layer 2
 
     SYMB,   // symbols
     MDIA,   // media keys
@@ -168,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
 // Otherwise, it needs KC_*
-[NEO1] = LAYOUT_ergodox(  // layer 0 : default
+[NEO1] = LAYOUT_ergodox(
         // left hand
         DE_CIRC,        KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_INS,
         LCTL(KC_X),     KC_X,         KC_V,   KC_L,   KC_C,   KC_W,   KC_DEL,
@@ -177,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,          KC_NO,        KC_NO,  KC_NO,  KC_LGUI,
                                                       KC_NO,  KC_NO,
                                                               KC_LALT,
-                                              KC_LSFT,KC_CAPS,KC_LCTL,
+                                              LM(NEO2, MOD_LSFT),KC_CAPS,KC_LCTL,
         // right hand
              KC_ESC,      KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             DE_MINS,
              KC_BSPC,     KC_K,   KC_H,  KC_G,   KC_F,   KC_Q,             DE_SS,
@@ -187,6 +188,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_NO,       KC_NO,
              KC_NO,
              KC_RCTL,KC_RALT,KC_SPC
+    ),
+/* Keymap 4: Poor man's Neo, layer 2. Based on German layout.
+ * Layer assumes that the Shift key is pressed.
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |        |   °  |   §  |      |      |      |      |           |      |   $  |   €  |      |      |      |        |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |------|           |------|      |      |      |      |      |        |
+ * |--------+------+------+------+------+------| Tab  |           | Enter|------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |      |      |      |      |      |                                       |      |      |      |      |       |
+ *   `----------------------------------'                                       `-----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------ ------ ------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+[NEO2] = LAYOUT_ergodox(
+       // left hand
+       KC_TRNS,DE_CIRC,KC_3,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+                                       KC_TRNS,KC_TRNS,
+                                               KC_TRNS,
+                               KC_TRNS,KC_TRNS,KC_TRNS,
+       // right hand
+       KC_TRNS, KC_4,    KC_E,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                         KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS,
+       KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS
     ),
 /* Keymap 1: Symbol Layer
  *
@@ -309,3 +352,11 @@ void matrix_scan_user(void) {
     }
 
 }
+
+//                                                          trigger mod     trigger key    replacement key    layer 
+const key_override_t neo_layer2_kc_1 = ko_make_with_layers( MOD_MASK_SHIFT, KC_E,          RALT(KC_E),        NEO2 );
+
+// This globally defines all key overrides to be used
+const key_override_t *key_overrides[] = {
+  &neo_layer2_kc_1,
+};
