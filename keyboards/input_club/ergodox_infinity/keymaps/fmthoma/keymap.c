@@ -21,7 +21,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,--------------------------------------------------.           ,--------------------------------------------------.
      * |   ^°   |   1  |   2  |   3  |   4  |   5  | Ins  |           | Esc  |   6  |   7  |   8  |   9  |   0  |   -    |
      * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-     * | Cut    |   Q  |   W  |   E  |   R  |   T  | Del  |           | Bksp |   Y  |   U  |   I  |   O  |   P  |   \    |
+     * | Cut    |   Q  |   W  |   E  |   R  |   T  | Del  |           | Bksp |   Y  |   U  |   I  |   O  |   P  |   {[   |
      * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
      * | Copy   |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
      * |--------+------+------+------+------+------| Tab  |           | Enter|------+------+------+------+------+--------|
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                         KC_LSFT,        KC_RALT,        KC_LCTL,
         // right hand
         KC_ESC,         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINS,
-        KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
+        KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRC,
                         KC_H,           RCTL_T(KC_J),   LALT_T(KC_K),   RSFT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOT,
         KC_ENT,         KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        TG(NUM),
                                         MO(ARRW),       KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
@@ -247,19 +247,19 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-const uint16_t PROGMEM er_esc[] = { KC_E,         KC_R,         COMBO_END };
+const uint16_t PROGMEM er_ins[] = { KC_E,         KC_R,         COMBO_END };
 const uint16_t PROGMEM df_del[] = { LALT_T(KC_D), LCTL_T(KC_F), COMBO_END };
 const uint16_t PROGMEM cv_tab[] = { KC_C,         KC_V,         COMBO_END };
-const uint16_t PROGMEM ui_ins[] = { KC_U,         KC_I,         COMBO_END };
+const uint16_t PROGMEM ui_esc[] = { KC_U,         KC_I,         COMBO_END };
 const uint16_t PROGMEM jk_bsp[] = { RCTL_T(KC_J), LALT_T(KC_K), COMBO_END };
 const uint16_t PROGMEM mc_ent[] = { KC_M,         KC_COMM,      COMBO_END };
 const uint16_t PROGMEM qwer_boot[] = { KC_Q, KC_W, KC_E, KC_R,  COMBO_END };
 
 combo_t key_combos[] = {
-    COMBO(er_esc, KC_ESC),
+    COMBO(er_ins, KC_INS),
     COMBO(df_del, KC_DEL),
     COMBO(cv_tab, KC_TAB),
-    COMBO(ui_ins, KC_INS),
+    COMBO(ui_esc, KC_ESC),
     COMBO(jk_bsp, KC_BSPC),
     COMBO(mc_ent, KC_ENT),
     COMBO(qwer_boot, QK_BOOT),
