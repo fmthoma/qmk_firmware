@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         MO(ARRW),       KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
         KC_NO,          KC_NO,
         KC_NO,
-        KC_RCTL,        KC_CAPS,        KC_SPC
+        KC_RCTL,        KC_CAPS,        LT(ARRW, KC_SPC)
     ),
     /* Keymap 1: Disabled home row mods
      * This is for resolving timing issues with Neo modifiers on thumb keys:
