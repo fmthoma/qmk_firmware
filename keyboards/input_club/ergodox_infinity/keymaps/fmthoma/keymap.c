@@ -252,21 +252,21 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-const uint16_t PROGMEM er_ins[] = { KC_E,         KC_R,         COMBO_END };
-const uint16_t PROGMEM df_del[] = { LALT_T(KC_D), LCTL_T(KC_F), COMBO_END };
-const uint16_t PROGMEM cv_tab[] = { KC_C,         KC_V,         COMBO_END };
-const uint16_t PROGMEM ui_esc[] = { KC_U,         KC_I,         COMBO_END };
-const uint16_t PROGMEM jk_bsp[] = { RCTL_T(KC_J), LALT_T(KC_K), COMBO_END };
-const uint16_t PROGMEM mc_ent[] = { KC_M,         KC_COMM,      COMBO_END };
+const uint16_t PROGMEM er_del[] = { KC_E,         KC_R,         COMBO_END };
+const uint16_t PROGMEM df_tab[] = { LALT_T(KC_D), LCTL_T(KC_F), COMBO_END };
+const uint16_t PROGMEM cv_ins[] = { KC_C,         KC_V,         COMBO_END };
+const uint16_t PROGMEM ui_bsp[] = { KC_U,         KC_I,         COMBO_END };
+const uint16_t PROGMEM jk_ent[] = { RCTL_T(KC_J), LALT_T(KC_K), COMBO_END };
+const uint16_t PROGMEM mc_esc[] = { KC_M,         KC_COMM,      COMBO_END };
 const uint16_t PROGMEM qwer_boot[] = { KC_Q, KC_W, KC_E, KC_R,  COMBO_END };
 
 combo_t key_combos[] = {
-    COMBO(er_ins, KC_INS),
-    COMBO(df_del, KC_DEL),
-    COMBO(cv_tab, KC_TAB),
-    COMBO(ui_esc, KC_ESC),
-    COMBO(jk_bsp, KC_BSPC),
-    COMBO(mc_ent, KC_ENT),
+    COMBO(er_del, KC_DEL),
+    COMBO(df_tab, KC_TAB),
+    COMBO(cv_ins, KC_INS),
+    COMBO(ui_bsp, KC_BSPC),
+    COMBO(jk_ent, KC_ENT),
+    COMBO(mc_esc, KC_ESC),
     COMBO(qwer_boot, QK_BOOT),
 };
 
