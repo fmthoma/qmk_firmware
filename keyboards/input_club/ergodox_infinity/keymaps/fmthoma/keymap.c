@@ -253,6 +253,7 @@ const uint16_t PROGMEM cv_tab[] = { KC_C,         KC_V,         COMBO_END };
 const uint16_t PROGMEM ui_ins[] = { KC_U,         KC_I,         COMBO_END };
 const uint16_t PROGMEM jk_bsp[] = { RCTL_T(KC_J), LALT_T(KC_K), COMBO_END };
 const uint16_t PROGMEM mc_ent[] = { KC_M,         KC_COMM,      COMBO_END };
+const uint16_t PROGMEM qwer_boot[] = { KC_Q, KC_W, KC_E, KC_R,  COMBO_END };
 
 combo_t key_combos[] = {
     COMBO(er_esc, KC_ESC),
@@ -261,4 +262,5 @@ combo_t key_combos[] = {
     COMBO(ui_ins, KC_INS),
     COMBO(jk_bsp, KC_BSPC),
     COMBO(mc_ent, KC_ENT),
+    COMBO(qwer_boot, QK_BOOT),
 };
