@@ -174,3 +174,19 @@ void matrix_scan_user(void) {
             break;
     }
 }
+
+const uint16_t PROGMEM er_esc[] = { KC_E,         KC_R,         COMBO_END };
+const uint16_t PROGMEM df_del[] = { LALT_T(KC_D), LCTL_T(KC_F), COMBO_END };
+const uint16_t PROGMEM cv_tab[] = { KC_C,         KC_V,         COMBO_END };
+const uint16_t PROGMEM ui_ins[] = { KC_U,         KC_I,         COMBO_END };
+const uint16_t PROGMEM jk_bsp[] = { RCTL_T(KC_J), LALT_T(KC_K), COMBO_END };
+const uint16_t PROGMEM mc_ent[] = { KC_M,         KC_COMM,      COMBO_END };
+
+combo_t key_combos[] = {
+    COMBO(er_esc, KC_ESC),
+    COMBO(df_del, KC_DEL),
+    COMBO(cv_tab, KC_TAB),
+    COMBO(ui_ins, KC_INS),
+    COMBO(jk_bsp, KC_BSPC),
+    COMBO(mc_ent, KC_ENT),
+};
