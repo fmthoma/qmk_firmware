@@ -41,20 +41,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_INS,
         LSFT(KC_DEL),   KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_DEL,
         LCTL(KC_INS),   LGUI_T(KC_A),   LSFT_T(KC_S),   LALT_T(KC_D),   LCTL_T(KC_F),   KC_G,
-        LSFT(KC_INS),   KC_NUBS,        KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,
+        LSFT(KC_INS),   KC_Y,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LGUI,
                                                                                         KC_NO,          KC_NO,
                                                                                                         KC_LALT,
-                                                                        KC_LSFT,        KC_CAPS,        KC_LCTL,
+                                                                        KC_LSFT,        KC_RALT,        KC_LCTL,
         // right hand
         KC_ESC,         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINS,
         KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
                         KC_H,           RCTL_T(KC_J),   LALT_T(KC_K),   RSFT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOT,
-        KC_ENT,         KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        TG(2),
-                                        MO(1),          KC_F4,          KC_NO,          KC_NO,          MEH(KC_F12),
+        KC_ENT,         KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        TG(NUM),
+                                        MO(ARRW),       KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
         KC_NO,          KC_NO,
         KC_NO,
-        KC_RCTL,        KC_RALT,        KC_SPC
+        KC_RCTL,        KC_CAPS,        KC_SPC
     ),
     /* Keymap 1: Arrow and function keys
      *
@@ -100,9 +100,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Keymap 2: Num keys
      *
      * ,---------------------------------------------------.           ,--------------------------------------------------.
-     * |         |      |      |      |      |      |      |           |      |      |  Num |   /  |   *  |   -  |        |
+     * |         |      |      |      |      |      |      |           |      |      |  Num |   /  |   *  |      |        |
      * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
-     * |         |      |      |      |      |      |      |           |      |      |   7  |   8  |   9  |   +  |        |
+     * |         |      |      |      |      |      |      |           |      |      |   7  |   8  |   9  |   -  |        |
      * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
      * |         | GUI  | Shift| Alt  | Ctrl |      |------|           |------|      |   4  |   5  |   6  |   +  |        |
      * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -129,8 +129,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                         KC_TRNS,
                                                                         KC_TRNS,        KC_TRNS,        KC_TRNS,
         // right  hand
-        KC_TRNS,        KC_NO,          KC_NUM,         KC_PSLS,        KC_PAST,        KC_PMNS,        KC_TRNS,
-        KC_TRNS,        KC_NO,          KC_P7,          KC_P8,          KC_P9,          KC_PPLS,        KC_TRNS,
+        KC_TRNS,        KC_NO,          KC_NUM,         KC_PSLS,        KC_PAST,        KC_NO,          KC_TRNS,
+        KC_TRNS,        KC_NO,          KC_P7,          KC_P8,          KC_P9,          KC_PMNS,        KC_TRNS,
                         KC_NO,          KC_P4,          KC_P5,          KC_P6,          KC_PPLS,        KC_TRNS,
         KC_TRNS,        KC_NO,          KC_P1,          KC_P2,          KC_P3,          KC_PENT,        KC_TRNS,
                                         KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
