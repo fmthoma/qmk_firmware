@@ -4,6 +4,7 @@
 
 enum custom_layers {
     BASE,   // default layer
+    NOHRM,  // disabled home row mods, to resolve timing issues with Neo modifiers
     ARRW,   // Arrow keys
     NUM,    // Num pad
 };
@@ -56,7 +57,55 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,
         KC_RCTL,        KC_CAPS,        KC_SPC
     ),
-    /* Keymap 1: Arrow and function keys
+    /* Keymap 1: Disabled home row mods
+     * This is for resolving timing issues with Neo modifiers on thumb keys:
+     * If the thumb key is released before the tap term is over, then the
+     * events are sent in the wrong order:
+     *     (mod down, mod up, key down, key up)
+     * instead of
+     *     (mod down, key down, key up, mod up).
+     * Disabling home row mods helps by sending the keycodes immediately.
+     *
+     * ,---------------------------------------------------.           ,--------------------------------------------------.
+     * |         |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+     * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
+     * |         |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+     * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+     * |         |   A  |   S  |   D  |   F  |      |------|           |------|      |   J  |   K  |   L  |   ;  |        |
+     * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+     * |         |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+     * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+     *   |       |      |      |      |      |                                       |      |      |      |      |      |
+     *   `-----------------------------------'                                       `----------------------------------'
+     *                                        ,-------------.       ,-------------.
+     *                                        |      |      |       |      |      |
+     *                                 ,------|------|------|       |------+------+------.
+     *                                 |      |      |      |       |      |      |      |
+     *                                 |      |      |------|       |------|      |      |
+     *                                 |      |      |      |       |      |      |      |
+     *                                 `--------------------'       `--------------------'
+     */
+    [NOHRM] = LAYOUT_ergodox(
+        // left hand
+        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        KC_TRNS,        KC_A,           KC_S,           KC_D,           KC_F,           KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+                                                                                        KC_TRNS,        KC_TRNS,
+                                                                                                        KC_TRNS,
+                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        // right hand
+        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+                        KC_TRNS,        KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        KC_TRNS,        KC_TRNS,
+        KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_TRNS
+    ),
+    /* Keymap 2: Arrow and function keys
      *
      * ,---------------------------------------------------.           ,--------------------------------------------------.
      * |   F1    |  F2  |  F3  |  F4  |  F5  |  F6  |      |           |      |  F7  |  F8  |  F9  |  F10 |  F11 |   F12  |
@@ -97,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS,
         KC_TRNS,        KC_TRNS,        KC_TRNS
     ),
-    /* Keymap 2: Num keys
+    /* Keymap 3: Num keys
      *
      * ,---------------------------------------------------.           ,--------------------------------------------------.
      * |         |      |      |      |      |      |      |           |      |      |  Num |   /  |   *  |      |        |
@@ -142,13 +191,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case KC_CAPS:
+            if (record->event.pressed) {
+                layer_on(NOHRM);
+            } else {
+
+                layer_off(NOHRM);
+            }
+            return true; // pass the key on
         // dynamically generate these.
         case VRSN:
             if (record->event.pressed) {
               SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
             }
             return false;
-            break;
     }
     return true;
 }
