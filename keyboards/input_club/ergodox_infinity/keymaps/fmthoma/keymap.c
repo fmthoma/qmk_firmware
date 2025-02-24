@@ -16,7 +16,7 @@ enum custom_keycodes {
 
 // Tap Dance
 enum {
-    TD_Y_GRAVE,
+    TD_MINS_GRAVE,
     TD_SZLIG_ACUTE,
 };
 
@@ -53,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                         KC_LALT,
                                                                         KC_LSFT,        KC_RALT,        KC_LCTL,
         // right hand
-        KC_ESC,         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINS,
+        KC_ESC,         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           TD(TD_MINS_GRAVE),
         KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           TD(TD_SZLIG_ACUTE),
-                        KC_H,           RCTL_T(KC_J),   LALT_T(KC_K),   RSFT_T(KC_L),   RGUI_T(KC_SCLN),TD(TD_Y_GRAVE),
+                        KC_H,           RCTL_T(KC_J),   LALT_T(KC_K),   RSFT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOT,
         KC_ENT,         KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        TG(NUM),
                                         MO(ARRW),       KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
         KC_NO,          KC_NO,
@@ -271,6 +271,6 @@ combo_t key_combos[] = {
 };
 
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_Y_GRAVE]     = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_EQL),  // y -> `
+    [TD_MINS_GRAVE]  = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_EQL),  // - -> `
     [TD_SZLIG_ACUTE] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC), // ß -> ´
 };
