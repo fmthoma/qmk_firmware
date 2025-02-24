@@ -175,6 +175,22 @@ void matrix_scan_user(void) {
     }
 }
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        case ARRW:
+            ergodox_infinity_lcd_color(UINT16_MAX, UINT16_MAX / 2, UINT16_MAX / 2);
+            break;
+        case NUM:
+            ergodox_infinity_lcd_color(UINT16_MAX / 2, UINT16_MAX, UINT16_MAX / 2);
+            break;
+        case BASE:
+        default:
+            ergodox_infinity_lcd_color(UINT16_MAX / 2, UINT16_MAX / 2, UINT16_MAX / 2);
+            break;
+    }
+    return state;
+}
+
 const uint16_t PROGMEM er_esc[] = { KC_E,         KC_R,         COMBO_END };
 const uint16_t PROGMEM df_del[] = { LALT_T(KC_D), LCTL_T(KC_F), COMBO_END };
 const uint16_t PROGMEM cv_tab[] = { KC_C,         KC_V,         COMBO_END };
