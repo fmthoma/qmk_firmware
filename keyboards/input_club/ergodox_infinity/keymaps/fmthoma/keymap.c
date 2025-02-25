@@ -2,17 +2,30 @@
 #include "version.h"
 #include "keymap_german.h"
 
+#define TODO KC_NO
+#define ALT_CODE(code) (SS_DOWN(X_RALT) code SS_UP(X_RALT))
+
 enum custom_layers {
     BASE,   // default layer
     NOHRM,  // disabled home row mods, to resolve timing issues with Neo modifiers
+
+    NEO1,   // Poor Man's Neo layer 1
+//    NEO3,   // Poor Man's Neo layer 3
+//    NEO4,   // Poor Man's Neo layer 4
+//    NEO5,   // Poor Man's Neo layer 5
+//    NEO6,   // Poor Man's Neo layer 6
+
     ARRW,   // Arrow keys
     NUMFN,  // Number row & Fn keys
     NUMPAD, // Num pad
 };
 
 enum custom_keycodes {
-    PLACEHOLDER = SAFE_RANGE, // can always be here
-    VRSN,
+    VRSN = SAFE_RANGE, // can always be here
+    NEO_ELL,
+    NEO_EMDASH,
+    NEO_ENDASH,
+    NEO_BULLET,
 };
 
 // Tap Dance
@@ -31,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
      * | Copy   |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
      * |--------+------+------+------+------+------| Tab  |           | Enter|------+------+------+------+------+--------|
-     * | Paste  |  <>| |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |  NUM   |
+     * | Paste  |  <>| |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | NUMPAD |
      * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
      *   | ???  | ???  | ???  | ???  | GUI  |                                       | NUMFN|  F4  |  ??? |  ??? |C+S+F12|
      *   `----------------------------------'                                       `-----------------------------------'
@@ -43,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                 |      |      | LCtrl|       | RCtrl|      |      |
      *                                 `--------------------'       `--------------------'
      */
-    [BASE] = LAYOUT_ergodox(      // layer 0 : default
+    [BASE] = LAYOUT_ergodox(
         // left hand
         KC_GRV,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_INS,
         LSFT(KC_DEL),   KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_DEL,
@@ -110,6 +123,47 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS,        KC_TRNS,
         KC_TRNS,
         KC_TRNS,        KC_TRNS,        KC_TRNS
+    ),
+    /* NEO1: Poor Man's Neo layer 1
+     *
+     * ,--------------------------------------------------.           ,--------------------------------------------------.
+     * |   ^°   |   1  |   2  |   3  |   4  |   5  | Ins  |           | Esc  |   6  |   7  |   8  |   9  |   0  |   -    |
+     * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+     * | Cut    |   Q  |   W  |   E  |   R  |   T  | Del  |           | Bksp |   Y  |   U  |   I  |   O  |   P  |   {[   |
+     * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+     * | Copy   |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
+     * |--------+------+------+------+------+------| Tab  |           | Enter|------+------+------+------+------+--------|
+     * | Paste  |  <>| |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |  NUM   |
+     * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+     *   | ???  | ???  | ???  | ???  | GUI  |                                       | NUMFN|  F4  |  ??? |  ??? |C+S+F12|
+     *   `----------------------------------'                                       `-----------------------------------'
+     *                                        ,-------------.       ,-------------.
+     *                                        | ???  | ???  |       | ???  | ???  |
+     *                                 ,------|------|------|       |------+------+------.
+     *                                 |      |      | LAlt |       | ???  |      |      |
+     *                                 | Shift| Caps |------|       |------| AltGr| Space|
+     *                                 |      |      | LCtrl|       | RCtrl|      |      |
+     *                                 `--------------------'       `--------------------'
+     */
+    [NEO1] = LAYOUT_ergodox(
+        // left hand
+        KC_NO,          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_INS,
+        LCTL(KC_X),     KC_X,           KC_V,           KC_L,           KC_C,           KC_W,           KC_DEL,
+        LCTL(KC_C),     LGUI_T(KC_U),   LSFT_T(KC_I),   LALT_T(KC_A),   LCTL_T(KC_E),   KC_O,
+        LCTL(KC_V),     DE_UDIA,        DE_ODIA,        DE_ADIA,        KC_P,           DE_Z,           KC_TAB,
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LGUI,
+                                                                                        KC_NO,          KC_NO,
+                                                                                                        KC_LALT,
+                                                                        KC_LSFT,        KC_RALT,        KC_LCTL,
+        // right hand
+        KC_ESC,         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           DE_MINS,
+        KC_BSPC,        KC_K,           KC_H,           KC_G,           KC_F,           KC_Q,           DE_SS,
+                        KC_S,           RCTL_T(KC_N),   LALT_T(KC_R),   RSFT_T(KC_T),   RGUI_T(KC_D),   DE_Y,
+        KC_ENT,         KC_B,           KC_M,           KC_COMM,        KC_DOT,         KC_J,           TG(NUMPAD),
+                                        MO(NUMFN),      KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
+        KC_NO,          KC_NO,
+        KC_NO,
+        KC_RCTL,        KC_CAPS,        LT(ARRW, KC_SPC)
     ),
     /* Keymap 2: Arrow and function keys
      *
@@ -200,7 +254,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
      * |         |      |      |      |      |      |      |           |      |      |   7  |   8  |   9  |   -  |        |
      * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-     * |         | GUI  | Shift| Alt  | Ctrl |      |------|           |------|      |   4  |   5  |   6  |   +  |        |
+     * |         | GUI  | Shift| Alt  | Ctrl |      |------|           |------|      |   4  |   5  |   6  |   +  |TG(NEO1)|
      * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
      * |         |      |      |      |      |      |      |           |      |      |   1  |   2  |   3  | Enter|        |
      * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -227,7 +281,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right  hand
         KC_TRNS,        KC_NO,          KC_NUM,         KC_PSLS,        KC_PAST,        KC_NO,          KC_TRNS,
         KC_TRNS,        KC_NO,          KC_P7,          KC_P8,          KC_P9,          KC_PMNS,        KC_TRNS,
-                        KC_NO,          KC_P4,          KC_P5,          KC_P6,          KC_PPLS,        KC_TRNS,
+                        KC_NO,          KC_P4,          KC_P5,          KC_P6,          KC_PPLS,        TG(NEO1),
         KC_TRNS,        KC_NO,          KC_P1,          KC_P2,          KC_P3,          KC_PENT,        KC_TRNS,
                                         KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
         KC_TRNS,        KC_TRNS,
@@ -245,11 +299,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(NOHRM);
             }
             return true; // pass the key on
-        // dynamically generate these.
+        case NEO_ENDASH:
+            if (record->event.pressed) SEND_STRING (ALT_CODE("0150"));
+            return false;
+        case NEO_EMDASH:
+            if (record->event.pressed) SEND_STRING (ALT_CODE("0151"));
+            return false;
+        case NEO_BULLET:
+            if (record->event.pressed) SEND_STRING (ALT_CODE("0149"));
+            return false;
+        case NEO_ELL:
+            if (record->event.pressed) SEND_STRING (ALT_CODE("0133"));
+            return false;
         case VRSN:
-            if (record->event.pressed) {
-              SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
-            }
+            if (record->event.pressed) SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
             return false;
     }
     return true;
@@ -317,4 +380,20 @@ combo_t key_combos[] = {
 tap_dance_action_t tap_dance_actions[] = {
     [TD_MINS_GRAVE]  = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_EQL),  // - -> `
     [TD_SZLIG_ACUTE] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC), // ß -> ´
+};
+
+//                                                                   trigger mod     trigger key    replacement key    layer
+const key_override_t neo_layer2_6_dollar      = ko_make_with_layers( MOD_MASK_SHIFT, KC_6,          KC_DOLLAR,         ~0 );
+const key_override_t neo_layer2_7_euro        = ko_make_with_layers( MOD_MASK_SHIFT, KC_7,          DE_EURO,           ~0 );
+const key_override_t neo_layer2_comma_endash  = ko_make_with_layers( MOD_MASK_SHIFT, KC_COMM,       NEO_ENDASH,        ~0 );
+const key_override_t neo_layer2_minus_emdash  = ko_make_with_layers( MOD_MASK_SHIFT, DE_MINS,       NEO_EMDASH,        ~0 );
+const key_override_t neo_layer2_dot_bullet    = ko_make_with_layers( MOD_MASK_SHIFT, KC_DOT,        NEO_BULLET,        ~0 );
+
+// This globally defines all key overrides to be used
+const key_override_t *key_overrides[] = {
+  &neo_layer2_6_dollar,
+  &neo_layer2_7_euro,
+  &neo_layer2_comma_endash,
+  &neo_layer2_minus_emdash,
+  &neo_layer2_dot_bullet,
 };
