@@ -10,7 +10,7 @@ enum custom_layers {
     NOHRM,  // disabled home row mods, to resolve timing issues with Neo modifiers
 
     NEO1,   // Poor Man's Neo layer 1
-//    NEO3,   // Poor Man's Neo layer 3
+    NEO3,   // Poor Man's Neo layer 3
 //    NEO4,   // Poor Man's Neo layer 4
 //    NEO5,   // Poor Man's Neo layer 5
 //    NEO6,   // Poor Man's Neo layer 6
@@ -173,7 +173,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         MO(NUMFN),      KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
         KC_NO,          KC_NO,
         KC_NO,
-        KC_RCTL,        KC_CAPS,        LT(ARRW, KC_SPC)
+        KC_RCTL,        MO(NEO3),       LT(ARRW, KC_SPC)
+    ),
+    /* NEO3: Poor Man's Neo layer 3 */
+    [NEO3] = LAYOUT_ergodox(
+        // left hand
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
+        KC_NO,          NEO_ELL,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        KC_TRNS,
+        KC_NO,          DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,
+        KC_NO,          DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,         KC_TRNS,
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+                                                                                        KC_NO,          KC_NO,
+                                                                                                        KC_NO,
+                                                                        KC_NO,          KC_NO,          KC_NO,
+        // right hand
+        KC_TRNS,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_TRNS,        DE_EXLM,        DE_LABK,        DE_RABK,        DE_EQL,         DE_AMPR,        KC_NO,
+                        DE_QUES,        DE_LPRN,        DE_RPRN,        DE_MINS,        DE_COLN,        DE_AT,
+        KC_TRNS,        DE_PLUS,        DE_PERC,        DE_DQUO,        DE_QUOT,        DE_SCLN,        KC_TRNS,
+                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_NO,          KC_NO,
+        KC_NO,
+        KC_NO,          KC_TRNS,        KC_NO
     ),
     /* Keymap 2: Arrow and function keys
      *
@@ -448,3 +469,27 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_MINS_GRAVE]  = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_EQL),  // - -> `
     [TD_SZLIG_ACUTE] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC), // ß -> ´
 };
+
+/* blank layer (for copy-paste)
+
+        // left hand
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+                                                                                        KC_NO,          KC_NO,
+                                                                                                        KC_NO,
+                                                                        KC_NO,          KC_NO,          KC_NO,
+        // right hand
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_NO,          KC_NO,
+        KC_NO,
+        KC_NO,          KC_NO,          KC_NO
+
+
+ */
