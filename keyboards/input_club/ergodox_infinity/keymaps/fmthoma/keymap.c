@@ -300,6 +300,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+void neo_layer1_shifted(uint8_t unshifted, uint8_t shifted) {
+    uint8_t kc = get_mods() & MOD_MASK_SHIFT ? shifted : unshifted;
+    tap_code(kc);
+}
+
+void neo_layer1_unshifted(uint8_t unshifted, uint16_t shifted) {
+    uint8_t mods = get_mods();
+    if (mods & MOD_MASK_SHIFT) {
+        unregister_mods(mods);
+        tap_code16(shifted);
+        register_mods(mods);
+    } else {
+        tap_code(unshifted);
+    }
+}
+
+void neo_layer1_macro(uint8_t unshifted, char* shifted) {
+    uint8_t mods = get_mods();
+    if (mods & MOD_MASK_SHIFT) {
+        unregister_mods(mods);
+        SEND_STRING (shifted);
+        register_mods(mods);
+    } else {
+        tap_code(unshifted);
+    }
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case KC_CAPS:
@@ -315,121 +342,40 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
 
         case NEO_1_DEG:
-            if (record->event.pressed) register_code(get_mods() & MOD_MASK_SHIFT ? DE_CIRC : KC_1);
+            if (record->event.pressed) neo_layer1_shifted(KC_1, DE_CIRC);
             return false;
         case NEO_2_SECT:
-            if (record->event.pressed) register_code(get_mods() & MOD_MASK_SHIFT ? KC_3 : KC_2);
+            if (record->event.pressed) neo_layer1_shifted(KC_2, DE_3);
             return false;
         case NEO_4_RAQUO:
-            if (record->event.pressed) {
-                uint8_t mods = get_mods();
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    SEND_STRING (ALT_CODE("0187"));
-                    register_mods(mods);
-                } else {
-                    tap_code(KC_4);
-                }
-            }
+            if (record->event.pressed) neo_layer1_macro(KC_4, ALT_CODE("0187"));
             return false;
         case NEO_5_LAQUO:
-            if (record->event.pressed) {
-                uint8_t mods = get_mods();
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    SEND_STRING (ALT_CODE("0171"));
-                    register_mods(mods);
-                } else {
-                    tap_code(KC_5);
-                }
-            }
+            if (record->event.pressed) neo_layer1_macro(KC_5, ALT_CODE("0171"));
             return false;
         case NEO_6_DLLR:
-            if (record->event.pressed) register_code(get_mods() & MOD_MASK_SHIFT ? KC_4 : KC_6);
+            if (record->event.pressed) neo_layer1_shifted(KC_6, KC_4);
             return false;
         case NEO_7_EURO:
-            if (record->event.pressed) {
-                uint8_t mods = get_mods();
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    tap_code16(DE_EURO);
-                    register_mods(mods);
-                } else {
-                    tap_code(KC_7);
-                }
-            }
+            if (record->event.pressed) neo_layer1_unshifted(KC_7, DE_EURO);
             return false;
         case NEO_8_BDQUO:
-            if (record->event.pressed) {
-                uint8_t mods = get_mods();
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    SEND_STRING (ALT_CODE("0132"));
-                    register_mods(mods);
-                } else {
-                    tap_code(KC_8);
-                }
-            }
+            if (record->event.pressed) neo_layer1_macro(KC_8, ALT_CODE("0132"));
             return false;
         case NEO_9_LDQUO:
-            if (record->event.pressed) {
-                uint8_t mods = get_mods();
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    SEND_STRING (ALT_CODE("0147"));
-                    register_mods(mods);
-                } else {
-                    tap_code(KC_9);
-                }
-            }
+            if (record->event.pressed) neo_layer1_macro(KC_9, ALT_CODE("0147"));
             return false;
         case NEO_0_RDQUO:
-            if (record->event.pressed) {
-                uint8_t mods = get_mods();
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    SEND_STRING (ALT_CODE("0148"));
-                    register_mods(mods);
-                } else {
-                    tap_code(KC_0);
-                }
-            }
+            if (record->event.pressed) neo_layer1_macro(KC_0, ALT_CODE("0148"));
             return false;
         case NEO_MINS_EMDASH:
-            if (record->event.pressed) {
-                uint8_t mods = get_mods();
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    SEND_STRING (ALT_CODE("0151"));
-                    register_mods(mods);
-                } else {
-                    tap_code(DE_MINS);
-                }
-            }
+            if (record->event.pressed) neo_layer1_macro(DE_MINS, ALT_CODE("0151"));
             return false;
         case NEO_COMM_ENDASH:
-            if (record->event.pressed) {
-                uint8_t mods = get_mods();
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    SEND_STRING (ALT_CODE("0150"));
-                    register_mods(mods);
-                } else {
-                    tap_code(KC_COMM);
-                }
-            }
+            if (record->event.pressed) neo_layer1_macro(KC_COMM, ALT_CODE("0150"));
             return false;
         case NEO_DOT_BULLET:
-            if (record->event.pressed) {
-                uint8_t mods = get_mods();
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    SEND_STRING (ALT_CODE("0149"));
-                    register_mods(mods);
-                } else {
-                    tap_code(KC_DOT);
-                }
-            }
+            if (record->event.pressed) neo_layer1_macro(KC_DOT, ALT_CODE("0149"));
             return false;
 
         case VRSN:
