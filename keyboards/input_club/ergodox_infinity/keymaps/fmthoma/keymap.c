@@ -3,7 +3,7 @@
 #include "keymap_german.h"
 
 #define TODO KC_NO
-#define ALT_CODE(code) (SS_DOWN(X_RALT) code SS_UP(X_RALT))
+#define ALT_CODE(code) (SS_DOWN(X_LALT) code SS_UP(X_LALT))
 
 enum custom_layers {
     BASE,   // default layer
@@ -23,9 +23,19 @@ enum custom_layers {
 enum custom_keycodes {
     VRSN = SAFE_RANGE, // can always be here
     NEO_ELL,
-    NEO_EMDASH,
-    NEO_ENDASH,
-    NEO_BULLET,
+    NEO_1_DEG,
+    NEO_2_SECT,
+    NEO_3_LTRS, // not implemented
+    NEO_4_RAQUO,
+    NEO_5_LAQUO,
+    NEO_6_DLLR,
+    NEO_7_EURO,
+    NEO_8_BDQUO,
+    NEO_9_LDQUO,
+    NEO_0_RDQUO,
+    NEO_MINS_EMDASH,
+    NEO_COMM_ENDASH,
+    NEO_DOT_BULLET,
 };
 
 // Tap Dance
@@ -147,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [NEO1] = LAYOUT_ergodox(
         // left hand
-        KC_NO,          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_INS,
+        KC_NO,          NEO_1_DEG,      NEO_2_SECT,     KC_3,           NEO_4_RAQUO,    NEO_5_LAQUO,    KC_INS,
         LCTL(KC_X),     KC_X,           KC_V,           KC_L,           KC_C,           KC_W,           KC_DEL,
         LCTL(KC_C),     LGUI_T(KC_U),   LSFT_T(KC_I),   LALT_T(KC_A),   LCTL_T(KC_E),   KC_O,
         LCTL(KC_V),     DE_UDIA,        DE_ODIA,        DE_ADIA,        KC_P,           DE_Z,           KC_TAB,
@@ -156,10 +166,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                         KC_LALT,
                                                                         KC_LSFT,        KC_RALT,        KC_LCTL,
         // right hand
-        KC_ESC,         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           DE_MINS,
+        KC_ESC,         NEO_6_DLLR,     NEO_7_EURO,     NEO_8_BDQUO,    NEO_9_LDQUO,    NEO_0_RDQUO,    NEO_MINS_EMDASH,
         KC_BSPC,        KC_K,           KC_H,           KC_G,           KC_F,           KC_Q,           DE_SS,
                         KC_S,           RCTL_T(KC_N),   LALT_T(KC_R),   RSFT_T(KC_T),   RGUI_T(KC_D),   DE_Y,
-        KC_ENT,         KC_B,           KC_M,           KC_COMM,        KC_DOT,         KC_J,           TG(NUMPAD),
+        KC_ENT,         KC_B,           KC_M,           NEO_COMM_ENDASH,NEO_DOT_BULLET, KC_J,           TG(NUMPAD),
                                         MO(NUMFN),      KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
         KC_NO,          KC_NO,
         KC_NO,
@@ -299,18 +309,129 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(NOHRM);
             }
             return true; // pass the key on
-        case NEO_ENDASH:
-            if (record->event.pressed) SEND_STRING (ALT_CODE("0150"));
-            return false;
-        case NEO_EMDASH:
-            if (record->event.pressed) SEND_STRING (ALT_CODE("0151"));
-            return false;
-        case NEO_BULLET:
-            if (record->event.pressed) SEND_STRING (ALT_CODE("0149"));
-            return false;
+
         case NEO_ELL:
             if (record->event.pressed) SEND_STRING (ALT_CODE("0133"));
             return false;
+
+        case NEO_1_DEG:
+            if (record->event.pressed) register_code(get_mods() & MOD_MASK_SHIFT ? DE_CIRC : KC_1);
+            return false;
+        case NEO_2_SECT:
+            if (record->event.pressed) register_code(get_mods() & MOD_MASK_SHIFT ? KC_3 : KC_2);
+            return false;
+        case NEO_4_RAQUO:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_SHIFT) {
+                    unregister_mods(mods);
+                    SEND_STRING (ALT_CODE("0187"));
+                    register_mods(mods);
+                } else {
+                    tap_code(KC_4);
+                }
+            }
+            return false;
+        case NEO_5_LAQUO:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_SHIFT) {
+                    unregister_mods(mods);
+                    SEND_STRING (ALT_CODE("0171"));
+                    register_mods(mods);
+                } else {
+                    tap_code(KC_5);
+                }
+            }
+            return false;
+        case NEO_6_DLLR:
+            if (record->event.pressed) register_code(get_mods() & MOD_MASK_SHIFT ? KC_4 : KC_6);
+            return false;
+        case NEO_7_EURO:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_SHIFT) {
+                    unregister_mods(mods);
+                    tap_code16(DE_EURO);
+                    register_mods(mods);
+                } else {
+                    tap_code(KC_7);
+                }
+            }
+            return false;
+        case NEO_8_BDQUO:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_SHIFT) {
+                    unregister_mods(mods);
+                    SEND_STRING (ALT_CODE("0132"));
+                    register_mods(mods);
+                } else {
+                    tap_code(KC_8);
+                }
+            }
+            return false;
+        case NEO_9_LDQUO:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_SHIFT) {
+                    unregister_mods(mods);
+                    SEND_STRING (ALT_CODE("0147"));
+                    register_mods(mods);
+                } else {
+                    tap_code(KC_9);
+                }
+            }
+            return false;
+        case NEO_0_RDQUO:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_SHIFT) {
+                    unregister_mods(mods);
+                    SEND_STRING (ALT_CODE("0148"));
+                    register_mods(mods);
+                } else {
+                    tap_code(KC_0);
+                }
+            }
+            return false;
+        case NEO_MINS_EMDASH:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_SHIFT) {
+                    unregister_mods(mods);
+                    SEND_STRING (ALT_CODE("0151"));
+                    register_mods(mods);
+                } else {
+                    tap_code(DE_MINS);
+                }
+            }
+            return false;
+        case NEO_COMM_ENDASH:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_SHIFT) {
+                    unregister_mods(mods);
+                    SEND_STRING (ALT_CODE("0150"));
+                    register_mods(mods);
+                } else {
+                    tap_code(KC_COMM);
+                }
+            }
+            return false;
+        case NEO_DOT_BULLET:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_SHIFT) {
+                    unregister_mods(mods);
+                    SEND_STRING (ALT_CODE("0149"));
+                    register_mods(mods);
+                } else {
+                    tap_code(KC_DOT);
+                }
+            }
+            return false;
+
         case VRSN:
             if (record->event.pressed) SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
             return false;
@@ -380,20 +501,4 @@ combo_t key_combos[] = {
 tap_dance_action_t tap_dance_actions[] = {
     [TD_MINS_GRAVE]  = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_EQL),  // - -> `
     [TD_SZLIG_ACUTE] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC), // ß -> ´
-};
-
-//                                                                   trigger mod     trigger key    replacement key    layer
-const key_override_t neo_layer2_6_dollar      = ko_make_with_layers( MOD_MASK_SHIFT, KC_6,          KC_DOLLAR,         ~0 );
-const key_override_t neo_layer2_7_euro        = ko_make_with_layers( MOD_MASK_SHIFT, KC_7,          DE_EURO,           ~0 );
-const key_override_t neo_layer2_comma_endash  = ko_make_with_layers( MOD_MASK_SHIFT, KC_COMM,       NEO_ENDASH,        ~0 );
-const key_override_t neo_layer2_minus_emdash  = ko_make_with_layers( MOD_MASK_SHIFT, DE_MINS,       NEO_EMDASH,        ~0 );
-const key_override_t neo_layer2_dot_bullet    = ko_make_with_layers( MOD_MASK_SHIFT, KC_DOT,        NEO_BULLET,        ~0 );
-
-// This globally defines all key overrides to be used
-const key_override_t *key_overrides[] = {
-  &neo_layer2_6_dollar,
-  &neo_layer2_7_euro,
-  &neo_layer2_comma_endash,
-  &neo_layer2_minus_emdash,
-  &neo_layer2_dot_bullet,
 };
