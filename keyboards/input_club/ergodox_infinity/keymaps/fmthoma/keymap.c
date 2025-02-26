@@ -5,6 +5,11 @@
 #define TODO KC_NO
 #define ALT_CODE(code) (SS_DOWN(X_LALT) code SS_UP(X_LALT))
 
+#define OS(code_linux, code_windows, code_fallback) \
+    ( detected_host_os() == OS_LINUX ? code_linux \
+    : detected_host_os() == OS_WINDOWS ? code_windows \
+    : code_fallback )
+
 enum custom_layers {
     BASE,   // default layer
     NOHRM,  // disabled home row mods, to resolve timing issues with Neo modifiers
@@ -22,6 +27,9 @@ enum custom_layers {
 
 enum custom_keycodes {
     VRSN = SAFE_RANGE, // can always be here
+    OSKC_CUT,
+    OSKC_COPY,
+    OSKC_PSTE,
     NEO_ELL,
     NEO_1_DEG,
     NEO_2_SECT,
@@ -69,9 +77,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ergodox(
         // left hand
         KC_GRV,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_INS,
-        LSFT(KC_DEL),   KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_DEL,
-        LCTL(KC_INS),   LGUI_T(KC_A),   LSFT_T(KC_S),   LALT_T(KC_D),   LCTL_T(KC_F),   KC_G,
-        LSFT(KC_INS),   KC_Y,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,
+        OSKC_CUT,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_DEL,
+        OSKC_COPY,      LGUI_T(KC_A),   LSFT_T(KC_S),   LALT_T(KC_D),   LCTL_T(KC_F),   KC_G,
+        OSKC_PSTE,      KC_Y,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LGUI,
                                                                                         KC_NO,          KC_NO,
                                                                                                         KC_LALT,
@@ -158,9 +166,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [NEO1] = LAYOUT_ergodox(
         // left hand
         KC_NO,          NEO_1_DEG,      NEO_2_SECT,     KC_3,           NEO_4_RAQUO,    NEO_5_LAQUO,    KC_INS,
-        LCTL(KC_X),     KC_X,           KC_V,           KC_L,           KC_C,           KC_W,           KC_DEL,
-        LCTL(KC_C),     LGUI_T(KC_U),   LSFT_T(KC_I),   LALT_T(KC_A),   LCTL_T(KC_E),   KC_O,
-        LCTL(KC_V),     DE_UDIA,        DE_ODIA,        DE_ADIA,        KC_P,           DE_Z,           KC_TAB,
+        OSKC_CUT,       KC_X,           KC_V,           KC_L,           KC_C,           KC_W,           KC_DEL,
+        OSKC_COPY,      LGUI_T(KC_U),   LSFT_T(KC_I),   LALT_T(KC_A),   LCTL_T(KC_E),   KC_O,
+        OSKC_PSTE,      DE_UDIA,        DE_ODIA,        DE_ADIA,        KC_P,           DE_Z,           KC_TAB,
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LGUI,
                                                                                         KC_NO,          KC_NO,
                                                                                                         KC_LALT,
@@ -342,6 +350,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+char* os_specific_fallback(char* linux, char* windows, char* fallback) {
+    switch (detected_host_os()) {
+        case OS_LINUX:
+            return linux;
+        case OS_WINDOWS:
+            return windows;
+        default:
+            return fallback;
+    }
+}
+
+char* os_specific(char* linux, char* windows) {
+    return os_specific_fallback(linux, windows, linux);
+}
+
 void neo_layer1_shifted(uint8_t unshifted, uint8_t shifted) {
     uint8_t kc = get_mods() & MOD_MASK_SHIFT ? shifted : unshifted;
     tap_code(kc);
@@ -378,6 +401,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(NOHRM);
             }
             return true; // pass the key on
+
+        case OSKC_CUT:
+            if (record->event.pressed) tap_code16(OS(S(KC_DEL), C(KC_X), KC_CUT));
+            return false;
+        case OSKC_COPY:
+            if (record->event.pressed) tap_code16(OS(C(KC_INS), C(KC_C), KC_COPY));
+            return false;
+        case OSKC_PSTE:
+            if (record->event.pressed) tap_code16(OS(S(KC_INS), C(KC_V), KC_PSTE));
+            return false;
 
         case NEO_ELL:
             if (record->event.pressed) SEND_STRING (ALT_CODE("0133"));
@@ -468,20 +501,20 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-const uint16_t PROGMEM er_del[] = { KC_E,         KC_R,         COMBO_END };
-const uint16_t PROGMEM df_tab[] = { LALT_T(KC_D), LCTL_T(KC_F), COMBO_END };
-const uint16_t PROGMEM cv_ins[] = { KC_C,         KC_V,         COMBO_END };
-const uint16_t PROGMEM ui_bsp[] = { KC_U,         KC_I,         COMBO_END };
-const uint16_t PROGMEM jk_ent[] = { RCTL_T(KC_J), LALT_T(KC_K), COMBO_END };
-const uint16_t PROGMEM mc_esc[] = { KC_M,         KC_COMM,      COMBO_END };
-const uint16_t PROGMEM qwer_boot[] = { KC_Q, KC_W, KC_E, KC_R,  COMBO_END };
-const uint16_t PROGMEM neo_er_del[] = { KC_L,         KC_C,         COMBO_END };
-const uint16_t PROGMEM neo_df_tab[] = { LALT_T(KC_A), LCTL_T(KC_E), COMBO_END };
-const uint16_t PROGMEM neo_cv_ins[] = { DE_ADIA,      KC_P,         COMBO_END };
-const uint16_t PROGMEM neo_ui_bsp[] = { KC_H,         KC_G,         COMBO_END };
-const uint16_t PROGMEM neo_jk_ent[] = { RCTL_T(KC_N), LALT_T(KC_R), COMBO_END };
-const uint16_t PROGMEM neo_mc_esc[] = { KC_M,         KC_COMM,      COMBO_END };
-const uint16_t PROGMEM neo_qwer_boot[] = { KC_X, KC_V, KC_L, KC_C,  COMBO_END };
+const uint16_t PROGMEM er_del[]        = { KC_E,         KC_R,         COMBO_END };
+const uint16_t PROGMEM df_tab[]        = { LALT_T(KC_D), LCTL_T(KC_F), COMBO_END };
+const uint16_t PROGMEM cv_ins[]        = { KC_C,         KC_V,         COMBO_END };
+const uint16_t PROGMEM ui_bsp[]        = { KC_U,         KC_I,         COMBO_END };
+const uint16_t PROGMEM jk_ent[]        = { RCTL_T(KC_J), LALT_T(KC_K), COMBO_END };
+const uint16_t PROGMEM mc_esc[]        = { KC_M,         KC_COMM,      COMBO_END };
+const uint16_t PROGMEM qwer_boot[]     = { KC_Q, KC_W, KC_E, KC_R,     COMBO_END };
+const uint16_t PROGMEM neo_er_del[]    = { KC_L,         KC_C,         COMBO_END };
+const uint16_t PROGMEM neo_df_tab[]    = { LALT_T(KC_A), LCTL_T(KC_E), COMBO_END };
+const uint16_t PROGMEM neo_cv_ins[]    = { DE_ADIA,      KC_P,         COMBO_END };
+const uint16_t PROGMEM neo_ui_bsp[]    = { KC_H,         KC_G,         COMBO_END };
+const uint16_t PROGMEM neo_jk_ent[]    = { RCTL_T(KC_N), LALT_T(KC_R), COMBO_END };
+const uint16_t PROGMEM neo_mc_esc[]    = { KC_M,         KC_COMM,      COMBO_END };
+const uint16_t PROGMEM neo_qwer_boot[] = { KC_X, KC_V, KC_L, KC_C,     COMBO_END };
 
 combo_t key_combos[] = {
     COMBO(er_del, KC_DEL),
