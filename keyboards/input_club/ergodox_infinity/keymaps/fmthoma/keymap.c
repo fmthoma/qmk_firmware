@@ -4,11 +4,9 @@
 
 #define TODO KC_NO
 #define ALT_CODE(code) (SS_DOWN(X_LALT) code SS_UP(X_LALT))
-
-#define OS(code_linux, code_windows, code_fallback) \
-    ( detected_host_os() == OS_LINUX ? code_linux \
-    : detected_host_os() == OS_WINDOWS ? code_windows \
-    : code_fallback )
+#define SEND_ALT_CODE(code) (SEND_STRING (ALT_CODE(code)))
+#define WINDOWS(code_windows, code_default) \
+    (detected_host_os() == OS_WINDOWS ? code_windows : code_default)
 
 enum custom_layers {
     BASE,   // default layer
@@ -350,6 +348,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+#define NEO_LAYER1_MACRO(unshifted, shifted) ({\
+    uint8_t mods = get_mods(); \
+    if (mods & MOD_MASK_SHIFT) { \
+        unregister_mods(mods); \
+        shifted; \
+        register_mods(mods); \
+    } else { \
+        tap_code(unshifted); \
+    } \
+})
+
 char* os_specific_fallback(char* linux, char* windows, char* fallback) {
     switch (detected_host_os()) {
         case OS_LINUX:
@@ -403,17 +412,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true; // pass the key on
 
         case OSKC_CUT:
-            if (record->event.pressed) tap_code16(OS(S(KC_DEL), C(KC_X), KC_CUT));
+            if (record->event.pressed) WINDOWS(tap_code16(C(KC_X)), tap_code16(S(KC_DEL)));
             return false;
         case OSKC_COPY:
-            if (record->event.pressed) tap_code16(OS(C(KC_INS), C(KC_C), KC_COPY));
+            if (record->event.pressed) WINDOWS(tap_code16(C(KC_C)), tap_code16(C(KC_INS)));
             return false;
         case OSKC_PSTE:
-            if (record->event.pressed) tap_code16(OS(S(KC_INS), C(KC_V), KC_PSTE));
+            if (record->event.pressed) WINDOWS(tap_code16(C(KC_V)), tap_code16(S(KC_INS)));
             return false;
 
         case NEO_ELL:
-            if (record->event.pressed) SEND_STRING (ALT_CODE("0133"));
+            if (record->event.pressed) WINDOWS(
+                SEND_STRING (ALT_CODE("0133")),
+                register_unicode(0x2026));
             return false;
 
         case NEO_1_DEG:
@@ -423,10 +434,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) neo_layer1_shifted(KC_2, DE_3);
             return false;
         case NEO_4_RAQUO:
-            if (record->event.pressed) neo_layer1_macro(KC_4, ALT_CODE("0187"));
+            if (record->event.pressed) NEO_LAYER1_MACRO(KC_4, WINDOWS(
+                SEND_ALT_CODE("0187"),
+                register_unicode(0x00BB)));
             return false;
         case NEO_5_LAQUO:
-            if (record->event.pressed) neo_layer1_macro(KC_5, ALT_CODE("0171"));
+            if (record->event.pressed) NEO_LAYER1_MACRO(KC_5, WINDOWS(
+                SEND_ALT_CODE("0171"),
+                register_unicode(0x00AB)));
             return false;
         case NEO_6_DLLR:
             if (record->event.pressed) neo_layer1_shifted(KC_6, KC_4);
@@ -435,22 +450,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) neo_layer1_unshifted(KC_7, DE_EURO);
             return false;
         case NEO_8_BDQUO:
-            if (record->event.pressed) neo_layer1_macro(KC_8, ALT_CODE("0132"));
+            if (record->event.pressed) NEO_LAYER1_MACRO(KC_8, WINDOWS(
+                SEND_ALT_CODE("0132"),
+                register_unicode(0x201E)));
             return false;
         case NEO_9_LDQUO:
-            if (record->event.pressed) neo_layer1_macro(KC_9, ALT_CODE("0147"));
+            if (record->event.pressed) NEO_LAYER1_MACRO(KC_9, WINDOWS(
+                SEND_ALT_CODE("0147"),
+                register_unicode(0x201C)));
             return false;
         case NEO_0_RDQUO:
-            if (record->event.pressed) neo_layer1_macro(KC_0, ALT_CODE("0148"));
+            if (record->event.pressed) NEO_LAYER1_MACRO(KC_0, WINDOWS(
+                SEND_ALT_CODE("0148"),
+                register_unicode(0x201D)));
             return false;
         case NEO_MINS_EMDASH:
-            if (record->event.pressed) neo_layer1_macro(DE_MINS, ALT_CODE("0151"));
+            if (record->event.pressed) NEO_LAYER1_MACRO(DE_MINS, WINDOWS(
+                SEND_ALT_CODE("0151"),
+                register_unicode(0x2014)));
             return false;
         case NEO_COMM_ENDASH:
-            if (record->event.pressed) neo_layer1_macro(KC_COMM, ALT_CODE("0150"));
+            if (record->event.pressed) NEO_LAYER1_MACRO(KC_COMM, WINDOWS(
+                SEND_ALT_CODE("0150"),
+                register_unicode(0x2013)));
             return false;
         case NEO_DOT_BULLET:
-            if (record->event.pressed) neo_layer1_macro(KC_DOT, ALT_CODE("0149"));
+            if (record->event.pressed) NEO_LAYER1_MACRO(KC_DOT, WINDOWS(
+                SEND_ALT_CODE("0149"),
+                register_unicode(0x2022)));
             return false;
 
         case VRSN:
@@ -501,20 +528,20 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-const uint16_t PROGMEM er_del[]        = { KC_E,         KC_R,         COMBO_END };
-const uint16_t PROGMEM df_tab[]        = { LALT_T(KC_D), LCTL_T(KC_F), COMBO_END };
-const uint16_t PROGMEM cv_ins[]        = { KC_C,         KC_V,         COMBO_END };
-const uint16_t PROGMEM ui_bsp[]        = { KC_U,         KC_I,         COMBO_END };
-const uint16_t PROGMEM jk_ent[]        = { RCTL_T(KC_J), LALT_T(KC_K), COMBO_END };
-const uint16_t PROGMEM mc_esc[]        = { KC_M,         KC_COMM,      COMBO_END };
-const uint16_t PROGMEM qwer_boot[]     = { KC_Q, KC_W, KC_E, KC_R,     COMBO_END };
-const uint16_t PROGMEM neo_er_del[]    = { KC_L,         KC_C,         COMBO_END };
-const uint16_t PROGMEM neo_df_tab[]    = { LALT_T(KC_A), LCTL_T(KC_E), COMBO_END };
-const uint16_t PROGMEM neo_cv_ins[]    = { DE_ADIA,      KC_P,         COMBO_END };
-const uint16_t PROGMEM neo_ui_bsp[]    = { KC_H,         KC_G,         COMBO_END };
-const uint16_t PROGMEM neo_jk_ent[]    = { RCTL_T(KC_N), LALT_T(KC_R), COMBO_END };
-const uint16_t PROGMEM neo_mc_esc[]    = { KC_M,         KC_COMM,      COMBO_END };
-const uint16_t PROGMEM neo_qwer_boot[] = { KC_X, KC_V, KC_L, KC_C,     COMBO_END };
+const uint16_t PROGMEM er_del[]        = { KC_E,         KC_R,            COMBO_END };
+const uint16_t PROGMEM df_tab[]        = { LALT_T(KC_D), LCTL_T(KC_F),    COMBO_END };
+const uint16_t PROGMEM cv_ins[]        = { KC_C,         KC_V,            COMBO_END };
+const uint16_t PROGMEM ui_bsp[]        = { KC_U,         KC_I,            COMBO_END };
+const uint16_t PROGMEM jk_ent[]        = { RCTL_T(KC_J), LALT_T(KC_K),    COMBO_END };
+const uint16_t PROGMEM mc_esc[]        = { KC_M,         KC_COMM,         COMBO_END };
+const uint16_t PROGMEM qwer_boot[]     = { KC_Q, KC_W, KC_E, KC_R,        COMBO_END };
+const uint16_t PROGMEM neo_er_del[]    = { KC_L,         KC_C,            COMBO_END };
+const uint16_t PROGMEM neo_df_tab[]    = { LALT_T(KC_A), LCTL_T(KC_E),    COMBO_END };
+const uint16_t PROGMEM neo_cv_ins[]    = { DE_ADIA,      KC_P,            COMBO_END };
+const uint16_t PROGMEM neo_ui_bsp[]    = { KC_H,         KC_G,            COMBO_END };
+const uint16_t PROGMEM neo_jk_ent[]    = { RCTL_T(KC_N), LALT_T(KC_R),    COMBO_END };
+const uint16_t PROGMEM neo_mc_esc[]    = { KC_M,         NEO_COMM_ENDASH, COMBO_END };
+const uint16_t PROGMEM neo_qwer_boot[] = { KC_X, KC_V, KC_L, KC_C,        COMBO_END };
 
 combo_t key_combos[] = {
     COMBO(er_del, KC_DEL),
