@@ -565,26 +565,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_SZLIG_ACUTE] = ACTION_TAP_DANCE_DOUBLE(DE_UDIA, DE_PLUS), // ß -> ´
 };
 
-static void format_layer_bitmap_string(char* buffer, uint8_t offset) {
-    for (int i = 0; i < 16 && i + offset < MAX_LAYER; i++) {
-        if (i == 0 || i == 4 || i == 8 || i == 12) {
-            *buffer = ' ';
-            ++buffer;
-        }
-
-        uint8_t layer = i + offset;
-        if (layer_state_cmp(default_layer_state, layer)) {
-            *buffer = 'D';
-        } else if (layer_state_is(layer)) {
-            *buffer = '1';
-        } else {
-            *buffer = '_';
-        }
-        ++buffer;
-    }
-    *buffer = 0;
-}
-
 char* format_os_string(void) {
     switch (detected_host_os()) {
         case OS_LINUX:
@@ -604,15 +584,14 @@ char* format_os_string(void) {
 void st7565_task_user(void) {
     if (is_keyboard_master()) {
         // Output detected OS
+        st7565_advance_page(true);
         st7565_write_ln(format_os_string(), false);
-
-        char layer_buffer[16 + 5];  // 3 spaces and one null terminator
-        st7565_set_cursor(0, 1);
-        format_layer_bitmap_string(layer_buffer, 0);
-        st7565_write_ln(layer_buffer, false);
-        format_layer_bitmap_string(layer_buffer, 16);
-        st7565_write_ln(layer_buffer, false);
-        st7565_write_ln("  1=On    D=Default", false);
+        st7565_advance_page(true);
+        if (layer_state_is(NEO1)) st7565_write("NEO ", false);
+        if (layer_state_is(ARRW)) st7565_write("ARRW ", false);
+        if (layer_state_is(NUMFN)) st7565_write("NUMFN ", false);
+        if (layer_state_is(NUMPAD)) st7565_write("NUMPAD ", false);
+        st7565_advance_page(true);
     } else {
         // Draw logo
         static const char qmk_logo[] = {
