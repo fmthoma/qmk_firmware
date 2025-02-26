@@ -475,6 +475,13 @@ const uint16_t PROGMEM ui_bsp[] = { KC_U,         KC_I,         COMBO_END };
 const uint16_t PROGMEM jk_ent[] = { RCTL_T(KC_J), LALT_T(KC_K), COMBO_END };
 const uint16_t PROGMEM mc_esc[] = { KC_M,         KC_COMM,      COMBO_END };
 const uint16_t PROGMEM qwer_boot[] = { KC_Q, KC_W, KC_E, KC_R,  COMBO_END };
+const uint16_t PROGMEM neo_er_del[] = { KC_L,         KC_C,         COMBO_END };
+const uint16_t PROGMEM neo_df_tab[] = { LALT_T(KC_A), LCTL_T(KC_E), COMBO_END };
+const uint16_t PROGMEM neo_cv_ins[] = { DE_ADIA,      KC_P,         COMBO_END };
+const uint16_t PROGMEM neo_ui_bsp[] = { KC_H,         KC_G,         COMBO_END };
+const uint16_t PROGMEM neo_jk_ent[] = { RCTL_T(KC_N), LALT_T(KC_R), COMBO_END };
+const uint16_t PROGMEM neo_mc_esc[] = { KC_M,         KC_COMM,      COMBO_END };
+const uint16_t PROGMEM neo_qwer_boot[] = { KC_X, KC_V, KC_L, KC_C,  COMBO_END };
 
 combo_t key_combos[] = {
     COMBO(er_del, KC_DEL),
@@ -484,6 +491,13 @@ combo_t key_combos[] = {
     COMBO(jk_ent, KC_ENT),
     COMBO(mc_esc, KC_ESC),
     COMBO(qwer_boot, QK_BOOT),
+    COMBO(neo_er_del, KC_DEL),
+    COMBO(neo_df_tab, KC_TAB),
+    COMBO(neo_cv_ins, KC_INS),
+    COMBO(neo_ui_bsp, KC_BSPC),
+    COMBO(neo_jk_ent, KC_ENT),
+    COMBO(neo_mc_esc, KC_ESC),
+    COMBO(neo_qwer_boot, QK_BOOT),
 };
 
 tap_dance_action_t tap_dance_actions[] = {
