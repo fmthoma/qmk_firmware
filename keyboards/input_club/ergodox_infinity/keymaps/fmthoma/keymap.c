@@ -11,7 +11,7 @@ enum custom_layers {
 
     NEO1,   // Poor Man's Neo layer 1
     NEO3,   // Poor Man's Neo layer 3
-//    NEO4,   // Poor Man's Neo layer 4
+    NEO4,   // Poor Man's Neo layer 4
 //    NEO5,   // Poor Man's Neo layer 5
 //    NEO6,   // Poor Man's Neo layer 6
 
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                        | ???  | ???  |       | ???  | ???  |
      *                                 ,------|------|------|       |------+------+------.
      *                                 |      |      | LAlt |       | ???  |      |      |
-     *                                 | Shift| Caps |------|       |------| AltGr| Space|
+     *                                 | Shift| AltGr|------|       |------| Caps | Space|
      *                                 |      |      | LCtrl|       | RCtrl|      |      |
      *                                 `--------------------'       `--------------------'
      */
@@ -151,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                        | ???  | ???  |       | ???  | ???  |
      *                                 ,------|------|------|       |------+------+------.
      *                                 |      |      | LAlt |       | ???  |      |      |
-     *                                 | Shift| Caps |------|       |------| AltGr| Space|
+     *                                 | Shift| NEO4 |------|       |------| NEO3 | Space|
      *                                 |      |      | LCtrl|       | RCtrl|      |      |
      *                                 `--------------------'       `--------------------'
      */
@@ -164,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LGUI,
                                                                                         KC_NO,          KC_NO,
                                                                                                         KC_LALT,
-                                                                        KC_LSFT,        KC_RALT,        KC_LCTL,
+                                                                        KC_LSFT,        MO(NEO4),       KC_LCTL,
         // right hand
         KC_ESC,         NEO_6_DLLR,     NEO_7_EURO,     NEO_8_BDQUO,    NEO_9_LDQUO,    NEO_0_RDQUO,    NEO_MINS_EMDASH,
         KC_BSPC,        KC_K,           KC_H,           KC_G,           KC_F,           KC_Q,           DE_SS,
@@ -178,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* NEO3: Poor Man's Neo layer 3 */
     [NEO3] = LAYOUT_ergodox(
         // left hand
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
+        KC_NO,          KC_NO,          DE_SUP2,        DE_SUP3,        KC_NO,          KC_NO,          KC_TRNS,
         KC_NO,          NEO_ELL,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        KC_TRNS,
         KC_NO,          DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,
         KC_NO,          DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,         KC_TRNS,
@@ -195,6 +195,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,          KC_NO,
         KC_NO,
         KC_NO,          KC_TRNS,        KC_NO
+    ),
+    /* NEO4: Poor Man's Neo layer 4 */
+    [NEO4] = LAYOUT_ergodox(
+        // left hand
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
+        KC_NO,          KC_PGUP,        KC_BSPC,        KC_UP,          KC_DEL,         KC_PGDN,        KC_TRNS,
+        KC_NO,          KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RGHT,        KC_END,
+        KC_NO,          KC_ESC,         KC_TAB,         KC_INS,         KC_ENT,         KC_UNDO,        KC_TRNS,
+        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+                                                                                        KC_NO,          KC_NO,
+                                                                                                        KC_NO,
+                                                                        KC_NO,          KC_TRNS,        KC_NO,
+        // right hand
+        KC_TRNS,        KC_NO,          KC_TAB,         DE_SLSH,        DE_ASTR,        DE_MINS,        KC_NO,
+        KC_TRNS,        TODO,           KC_P7,          KC_P8,          KC_P9,          KC_PLUS,        TODO,
+                        TODO,           KC_P4,          KC_P5,          KC_P6,          KC_COMM,        KC_DOT,
+        KC_TRNS,        DE_COLN,        KC_P1,          KC_P2,          KC_P3,          DE_SCLN,        KC_NO,
+                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_NO,          KC_NO,
+        KC_NO,
+        KC_NO,          KC_NO,          KC_NO
     ),
     /* Keymap 2: Arrow and function keys
      *
