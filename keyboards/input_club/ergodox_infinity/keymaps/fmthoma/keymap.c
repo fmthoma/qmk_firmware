@@ -30,8 +30,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         OSKC_CUT,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_DEL,
         OSKC_COPY,      HRM_A,          HRM_S,          HRM_D,          HRM_F,          KC_G,
         OSKC_PSTE,      KC_Y,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LGUI,
-                                                                                        KC_NO,          KC_NO,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_LGUI,
+                                                                                        XXXXXXX,        XXXXXXX,
                                                                                                         KC_LALT,
                                                                         KC_LSFT,        KC_RALT,        KC_LCTL,
         // right hand
@@ -39,9 +39,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           SS_ACUTE,
                         KC_H,           HRM_J,          HRM_K,          HRM_L,          HRM_ODIA,       DE_ADIA,
         KC_ENT,         KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        TG(NUMPAD),
-                                        MO(NUMFN),      KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
-        KC_NO,          KC_NO,
-        KC_NO,
+                                        MO(NUMFN),      KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
+        XXXXXXX,        XXXXXXX,
+        XXXXXXX,
         KC_RCTL,        KC_CAPS,        SPC_ARRW
     ),
     /* Keymap 1: Disabled home row mods
@@ -74,23 +74,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [NOHRM] = LAYOUT_ergodox(
         // left hand
-        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-        KC_TRNS,        KC_A,           KC_S,           KC_D,           KC_F,           KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-                                                                                        KC_TRNS,        KC_TRNS,
-                                                                                                        KC_TRNS,
-                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        KC_A,           KC_S,           KC_D,           KC_F,           _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,
+                                                                                        _______,        _______,
+                                                                                                        _______,
+                                                                        _______,        _______,        _______,
         // right hand
-        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-                        KC_TRNS,        KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-        KC_TRNS,        KC_TRNS,
-        KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+                        _______,        KC_J,           KC_K,           KC_L,           KC_SCLN,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+                                        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,
+        _______,
+        _______,        _______,        _______
     ),
     /* NEO1: Poor Man's Neo layer 1
      *
@@ -115,12 +115,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [NEO1] = LAYOUT_ergodox(
         // left hand
-        KC_NO,          NEO_1_DEG,      NEO_2_SECT,     KC_3,           NEO_4_RAQUO,    NEO_5_LAQUO,    KC_INS,
+        XXXXXXX,        NEO_1_DEG,      NEO_2_SECT,     KC_3,           NEO_4_RAQUO,    NEO_5_LAQUO,    KC_INS,
         OSKC_CUT,       KC_X,           KC_V,           KC_L,           KC_C,           KC_W,           KC_DEL,
         OSKC_COPY,      LGUI_T(KC_U),   LSFT_T(KC_I),   LALT_T(KC_A),   LCTL_T(KC_E),   KC_O,
         OSKC_PSTE,      DE_UDIA,        DE_ODIA,        DE_ADIA,        KC_P,           DE_Z,           KC_TAB,
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LGUI,
-                                                                                        KC_NO,          KC_NO,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_LGUI,
+                                                                                        XXXXXXX,        XXXXXXX,
                                                                                                         KC_LALT,
                                                                         KC_LSFT,        MO(NEO4),       KC_LCTL,
         // right hand
@@ -128,52 +128,52 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BSPC,        KC_K,           KC_H,           KC_G,           KC_F,           KC_Q,           DE_SS,
                         KC_S,           RCTL_T(KC_N),   LALT_T(KC_R),   RSFT_T(KC_T),   RGUI_T(KC_D),   DE_Y,
         KC_ENT,         KC_B,           KC_M,           NEO_COMM_ENDASH,NEO_DOT_BULLET, KC_J,           TG(NUMPAD),
-                                        MO(NUMFN),      KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
-        KC_NO,          KC_NO,
-        KC_NO,
+                                        MO(NUMFN),      KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
+        XXXXXXX,        XXXXXXX,
+        XXXXXXX,
         KC_RCTL,        MO(NEO3),       LT(ARRW, KC_SPC)
     ),
     /* NEO3: Poor Man's Neo layer 3 */
     [NEO3] = LAYOUT_ergodox(
         // left hand
-        KC_NO,          KC_NO,          DE_SUP2,        DE_SUP3,        KC_NO,          KC_NO,          KC_TRNS,
-        KC_NO,          NEO_ELL,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        KC_TRNS,
-        KC_NO,          DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,
-        KC_NO,          DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,         KC_TRNS,
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-                                                                                        KC_NO,          KC_NO,
-                                                                                                        KC_NO,
-                                                                        KC_NO,          KC_NO,          KC_NO,
+        XXXXXXX,        XXXXXXX,        DE_SUP2,        DE_SUP3,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        NEO_ELL,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        _______,
+        XXXXXXX,        DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,
+        XXXXXXX,        DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,         _______,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                                                                                        XXXXXXX,        XXXXXXX,
+                                                                                                        XXXXXXX,
+                                                                        XXXXXXX,        XXXXXXX,        XXXXXXX,
         // right hand
-        KC_TRNS,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_TRNS,        DE_EXLM,        DE_LABK,        DE_RABK,        DE_EQL,         DE_AMPR,        KC_NO,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        _______,        DE_EXLM,        DE_LABK,        DE_RABK,        DE_EQL,         DE_AMPR,        XXXXXXX,
                         DE_QUES,        DE_LPRN,        DE_RPRN,        DE_MINS,        DE_COLN,        DE_AT,
-        KC_TRNS,        DE_PLUS,        DE_PERC,        DE_DQUO,        DE_QUOT,        DE_SCLN,        KC_TRNS,
-                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          KC_NO,
-        KC_NO,
-        KC_NO,          KC_TRNS,        KC_NO
+        _______,        DE_PLUS,        DE_PERC,        DE_DQUO,        DE_QUOT,        DE_SCLN,        _______,
+                                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        XXXXXXX,
+        XXXXXXX,
+        XXXXXXX,        _______,        KC_NO
     ),
     /* NEO4: Poor Man's Neo layer 4 */
     [NEO4] = LAYOUT_ergodox(
         // left hand
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
-        KC_NO,          KC_PGUP,        KC_BSPC,        KC_UP,          KC_DEL,         KC_PGDN,        KC_TRNS,
-        KC_NO,          KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RGHT,        KC_END,
-        KC_NO,          KC_ESC,         KC_TAB,         KC_INS,         KC_ENT,         KC_UNDO,        KC_TRNS,
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-                                                                                        KC_NO,          KC_NO,
-                                                                                                        KC_NO,
-                                                                        KC_NO,          KC_TRNS,        KC_NO,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        KC_PGUP,        KC_BSPC,        KC_UP,          KC_DEL,         KC_PGDN,        _______,
+        XXXXXXX,        KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RGHT,        KC_END,
+        XXXXXXX,        KC_ESC,         KC_TAB,         KC_INS,         KC_ENT,         KC_UNDO,        _______,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                                                                                        XXXXXXX,        XXXXXXX,
+                                                                                                        XXXXXXX,
+                                                                        XXXXXXX,        _______,        XXXXXXX,
         // right hand
-        KC_TRNS,        KC_NO,          KC_TAB,         DE_SLSH,        DE_ASTR,        DE_MINS,        KC_NO,
-        KC_TRNS,        TODO,           KC_P7,          KC_P8,          KC_P9,          KC_PLUS,        TODO,
+        _______,        XXXXXXX,        KC_TAB,         DE_SLSH,        DE_ASTR,        DE_MINS,        XXXXXXX,
+        _______,        TODO,           KC_P7,          KC_P8,          KC_P9,          KC_PLUS,        TODO,
                         TODO,           KC_P4,          KC_P5,          KC_P6,          KC_COMM,        KC_DOT,
-        KC_TRNS,        DE_COLN,        KC_P1,          KC_P2,          KC_P3,          DE_SCLN,        KC_NO,
-                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          KC_NO,
-        KC_NO,
-        KC_NO,          KC_NO,          KC_NO
+        _______,        DE_COLN,        KC_P1,          KC_P2,          KC_P3,          DE_SCLN,        XXXXXXX,
+                                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        XXXXXXX,
+        XXXXXXX,
+        XXXXXXX,        XXXXXXX,        KC_NO
     ),
     /* Keymap 2: Arrow and function keys
      *
@@ -198,23 +198,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [ARRW] = LAYOUT_ergodox(
         // left        hand
-        KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_F6,          KC_TRNS,
-        KC_TRNS,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
-        KC_TRNS,        KC_LGUI,        KC_LSFT,        KC_LALT,        KC_LCTL,        KC_NO,
-        KC_TRNS,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
-        EE_CLR,         KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-                                                                                        KC_TRNS,        KC_TRNS,
-                                                                                                        KC_TRNS,
-                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_F6,          _______,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        _______,        KC_LGUI,        KC_LSFT,        KC_LALT,        KC_LCTL,        XXXXXXX,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        EE_CLR,         _______,        _______,        _______,        _______,
+                                                                                        _______,        _______,
+                                                                                                        _______,
+                                                                        _______,        _______,        _______,
         // right hand
-        KC_TRNS,        KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,
-        KC_TRNS,        KC_NO,          LCTL(KC_PMNS),  LCTL(KC_PPLS),  KC_NO,          KC_NO,          KC_NO,
-                        KC_LEFT,        KC_DOWN,        KC_UP,          KC_RGHT,        KC_NO,          KC_NO,
-        KC_TRNS,        KC_HOME,        KC_PGDN,        KC_PGUP,        KC_END,         KC_NO,          KC_NO,
-                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-        KC_TRNS,        KC_TRNS,
-        KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS
+        _______,        KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,
+        _______,        XXXXXXX,        LCTL(KC_PMNS),  LCTL(KC_PPLS),  XXXXXXX,        XXXXXXX,        XXXXXXX,
+                        KC_LEFT,        KC_DOWN,        KC_UP,          KC_RGHT,        XXXXXXX,        XXXXXXX,
+        _______,        KC_HOME,        KC_PGDN,        KC_PGUP,        KC_END,         XXXXXXX,        XXXXXXX,
+                                        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,
+        _______,
+        _______,        _______,        _______
     ),
     /* Keymap 3: Number rows + Fn keys
      *
@@ -239,23 +239,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [NUMFN] = LAYOUT_ergodox(
         // left  hand
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
-        KC_NO,          KC_LGUI,        KC_LSFT,        KC_LALT,        KC_LCTL,        KC_NO,
-        KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_F6,          KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-                                                                                        KC_TRNS,        KC_TRNS,
-                                                                                                        KC_TRNS,
-                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        KC_LGUI,        KC_LSFT,        KC_LALT,        KC_LCTL,        XXXXXXX,
+        KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_F6,          _______,
+        _______,        _______,        _______,        _______,        _______,
+                                                                                        _______,        _______,
+                                                                                                        _______,
+                                                                        _______,        _______,        _______,
         // right  hand
-        KC_TRNS,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_TRNS,        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           TD(TD_MINS_GRAVE),
-                        KC_NO,          KC_RCTL,        KC_LALT,        KC_RSFT,        KC_RGUI,        KC_NO,
-        KC_TRNS,        KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,
-                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-        KC_TRNS,        KC_TRNS,
-        KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        _______,        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           TD(TD_MINS_GRAVE),
+                        XXXXXXX,        KC_RCTL,        KC_LALT,        KC_RSFT,        KC_RGUI,        XXXXXXX,
+        _______,        KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,
+                                        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,
+        _______,
+        _______,        _______,        _______
     ),
     /* Keymap 4: Numpad
      *
@@ -280,23 +280,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [NUMPAD] = LAYOUT_ergodox(
         // left  hand
-        KC_TRNS,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
-        KC_TRNS,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
-        KC_TRNS,        KC_LGUI,        KC_LSFT,        KC_LALT,        KC_LCTL,        KC_NO,
-        KC_TRNS,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRNS,
-        EE_CLR,         KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-                                                                                        KC_TRNS,        KC_TRNS,
-                                                                                                        KC_TRNS,
-                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        _______,        KC_LGUI,        KC_LSFT,        KC_LALT,        KC_LCTL,        XXXXXXX,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        EE_CLR,         _______,        _______,        _______,        _______,
+                                                                                        _______,        _______,
+                                                                                                        _______,
+                                                                        _______,        _______,        _______,
         // right  hand
-        KC_TRNS,        KC_NO,          KC_NUM,         KC_PSLS,        KC_PAST,        KC_NO,          KC_TRNS,
-        KC_TRNS,        KC_NO,          KC_P7,          KC_P8,          KC_P9,          KC_PMNS,        KC_TRNS,
-                        KC_NO,          KC_P4,          KC_P5,          KC_P6,          KC_PPLS,        TG(NEO1),
-        KC_TRNS,        KC_NO,          KC_P1,          KC_P2,          KC_P3,          KC_PENT,        KC_TRNS,
-                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-        KC_TRNS,        KC_TRNS,
-        KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_P0
+        _______,        XXXXXXX,        KC_NUM,         KC_PSLS,        KC_PAST,        XXXXXXX,        _______,
+        _______,        XXXXXXX,        KC_P7,          KC_P8,          KC_P9,          KC_PMNS,        _______,
+                        XXXXXXX,        KC_P4,          KC_P5,          KC_P6,          KC_PPLS,        TG(NEO1),
+        _______,        XXXXXXX,        KC_P1,          KC_P2,          KC_P3,          KC_PENT,        _______,
+                                        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,
+        _______,
+        _______,        _______,        KC_P0
     ),
 };
 
