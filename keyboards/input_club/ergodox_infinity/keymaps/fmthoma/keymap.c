@@ -28,21 +28,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_GRV,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_INS,
         OSKC_CUT,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_DEL,
-        OSKC_COPY,      LGUI_T(KC_A),   LSFT_T(KC_S),   LALT_T(KC_D),   LCTL_T(KC_F),   KC_G,
+        OSKC_COPY,      HRM_A,          HRM_S,          HRM_D,          HRM_F,          KC_G,
         OSKC_PSTE,      KC_Y,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LGUI,
                                                                                         KC_NO,          KC_NO,
                                                                                                         KC_LALT,
                                                                         KC_LSFT,        KC_RALT,        KC_LCTL,
         // right hand
-        KC_ESC,         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           TD(TD_MINS_GRAVE),
-        KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           TD(TD_SZLIG_ACUTE),
-                        KC_H,           RCTL_T(KC_J),   LALT_T(KC_K),   RSFT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOT,
+        KC_ESC,         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           MINS_GRV,
+        KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           SS_ACUTE,
+                        KC_H,           HRM_J,          HRM_K,          HRM_L,          HRM_ODIA,       DE_ADIA,
         KC_ENT,         KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        TG(NUMPAD),
                                         MO(NUMFN),      KC_F4,          KC_NO,          KC_NO,          RCS(KC_F12),
         KC_NO,          KC_NO,
         KC_NO,
-        KC_RCTL,        KC_CAPS,        LT(ARRW, KC_SPC)
+        KC_RCTL,        KC_CAPS,        SPC_ARRW
     ),
     /* Keymap 1: Disabled home row mods
      * This is for resolving timing issues with Neo modifiers on thumb keys:

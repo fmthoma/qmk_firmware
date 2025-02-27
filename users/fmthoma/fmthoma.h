@@ -6,6 +6,19 @@
 #define WINDOWS(code_windows, code_default) \
     (detected_host_os() == OS_WINDOWS ? code_windows : code_default)
 
+#define HRM_A LGUI_T(KC_A)
+#define HRM_S LSFT_T(KC_S)
+#define HRM_D LALT_T(KC_D)
+#define HRM_F LCTL_T(KC_F)
+#define HRM_J RCTL_T(KC_J)
+#define HRM_K LALT_T(KC_K)
+#define HRM_L RSFT_T(KC_L)
+#define HRM_ODIA RGUI_T(DE_ODIA)
+
+#define SPC_ARRW LT(ARRW, KC_SPC)
+#define MINS_GRV TD(TD_MINS_GRAVE)
+#define SS_ACUTE TD(TD_SZLIG_ACUTE)
+
 enum custom_layers {
     BASE,   // default layer
     NOHRM,  // disabled home row mods, to resolve timing issues with Neo modifiers
