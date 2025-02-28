@@ -28,83 +28,85 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
     OSKC_PSTE,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_MINS,TG(NUMPAD),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, KC_RALT, KC_LSFT,   SPC_ARRW, KC_CAPS, MO(NUMFN)
+                                          KC_LGUI, KC_RALT, KC_LSFT,   SPC_ARRW, KC_CAPS,MO(NUMFN)
                                       //`--------------------------'  `--------------------------'
+  ),
     [NOHRM] = LAYOUT_split_3x6_3_ex2(
   //,-------------------------------------------------------------.    ,-------------------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, _______, _______, _______, _______, _______,_______,     _______, _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+-------|    |-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______,    KC_A,    KC_S,    KC_D,    KC_F, _______,_______,     _______, _______,    KC_J,    KC_K,    KC_L, DE_ODIA, _______,
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
     [NEO1] = LAYOUT_split_3x6_3_ex2(
   //,-------------------------------------------------------------.    ,-------------------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     OSKC_CUT,    KC_X,    KC_V,    KC_L,    KC_C,    KC_W, KC_DEL,     KC_BSPC,    KC_K,    KC_H,    KC_G,    KC_F,    KC_Q,   DE_SS,
   //|--------+--------+--------+--------+--------+--------+-------|    |-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    OSKC_COPY, HRM_N_U, HRM_N_I, HRM_N_A, HRM_N_E,    KC_O, KC_TAB,      KC_ENT,    KC_S, HRM_N_N, HRM_N_R, HRM_N_T, HRM_N_D,    DE_Y,
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    OSKC_PSTE, DE_UDIA, DE_ODIA, DE_ADIA,    KC_P,    DE_Z,                KC_B,    KC_M,NEO_COMM_ENDASH,NEO_DOT_BULLET,KC_J,TG(NUMPAD),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          KC_LGUI, KC_RALT, KC_LSFT,   SPC_ARRW, KC_CAPS,MO(NUMFN)
                                       //`--------------------------'  `--------------------------'
   ),
     [NEO3] = LAYOUT_split_3x6_3_ex2(
   //,-------------------------------------------------------------.    ,-------------------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, NEO_ELL, DE_UNDS, DE_LBRC, DE_RBRC, DE_CIRC,_______,     _______, DE_EXLM, DE_LABK, DE_RABK,  DE_EQL, DE_AMPR, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+-------|    |-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, DE_BSLS, DE_SLSH, DE_LCBR, DE_RCBR, DE_ASTR,_______,     _______, DE_QUES, DE_LPRN, DE_RPRN, DE_MINS, DE_COLN,   DE_AT,
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, DE_HASH,  DE_DLR, DE_PIPE, DE_TILD,  DE_GRV,                      DE_PLUS, DE_PERC, DE_DQUO, DE_QUOT, DE_SCLN, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
+
   ),
     [NEO4] = LAYOUT_split_3x6_3_ex2(
   //,-------------------------------------------------------------.    ,-------------------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_PGUP, KC_BSPC,   KC_UP,  KC_DEL, KC_PGDN,_______,     _______,    TODO,   KC_P7,   KC_P8,   KC_P9, KC_PLUS,    TODO,
   //|--------+--------+--------+--------+--------+--------+-------|    |-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT,  KC_END,_______,     _______,    TODO,   KC_P4,   KC_P5,   KC_P6, KC_COMM,  KC_DOT,
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_ESC,   KC_TAB,  KC_INS,  KC_ENT, KC_UNDO,                      DE_COLN,   KC_P1,   KC_P2,   KC_P3, DE_SCLN, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          XXXXXXX, _______, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
     [ARRW] = LAYOUT_split_3x6_3_ex2(
   //,-------------------------------------------------------------.    ,-------------------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______,     _______, XXXXXXX,ZOOM_OUT, ZOOM_IN, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+-------|    |-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, KC_LGUI, KC_LSFT, KC_LALT, KC_LCTL, XXXXXXX,_______,     _______, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
     [NUMFN] = LAYOUT_split_3x6_3_ex2(
   //,-------------------------------------------------------------.    ,-------------------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,_______,     _______,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,MINS_GRV,
   //|--------+--------+--------+--------+--------+--------+-------|    |-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_LGUI, KC_LSFT, KC_LALT, KC_LCTL, XXXXXXX,_______,     _______, XXXXXXX, KC_RCTL, KC_LALT, KC_RSFT, KC_RGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
     [NUMPAD] = LAYOUT_split_3x6_3_ex2(
   //,-------------------------------------------------------------.    ,-------------------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     TG(NEO1), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______,     _______,  KC_NUM,   KC_P7,   KC_P8,   KC_P9, KC_PMNS, KC_PSLS,
   //|--------+--------+--------+--------+--------+--------+-------|    |-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_LGUI, KC_LSFT, KC_LALT, KC_LCTL, XXXXXXX,_______,     _______, XXXXXXX,   KC_P4,   KC_P5,   KC_P6, KC_PPLS, KC_PAST,
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,   KC_P1,   KC_P2,   KC_P3, KC_PENT, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          _______, _______, _______,      KC_P0, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
 };

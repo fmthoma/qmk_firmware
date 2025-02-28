@@ -15,9 +15,21 @@
 #define HRM_L RSFT_T(KC_L)
 #define HRM_ODIA RGUI_T(DE_ODIA)
 
+#define HRM_N_U LGUI_T(KC_U)
+#define HRM_N_I LSFT_T(KC_I)
+#define HRM_N_A LALT_T(KC_A)
+#define HRM_N_E LCTL_T(KC_E)
+#define HRM_N_N RCTL_T(KC_N)
+#define HRM_N_R LALT_T(KC_R)
+#define HRM_N_T RSFT_T(KC_T)
+#define HRM_N_D RGUI_T(KC_D)
+
 #define SPC_ARRW LT(ARRW, KC_SPC)
 #define MINS_GRV TD(TD_MINS_GRAVE)
 #define SS_ACUTE TD(TD_SZLIG_ACUTE)
+
+#define ZOOM_OUT LCTL(KC_PMNS)
+#define ZOOM_IN  LCTL(KC_PPLS)
 
 enum custom_layers {
     BASE,   // default layer

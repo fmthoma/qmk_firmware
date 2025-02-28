@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [BASE] = LAYOUT_ergodox(
         // left hand
-        KC_GRV,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_INS,
+        DE_CIRC,        KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_INS,
         OSKC_CUT,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_DEL,
         OSKC_COPY,      HRM_A,          HRM_S,          HRM_D,          HRM_F,          KC_G,
         OSKC_PSTE,      KC_Y,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
-                        _______,        KC_J,           KC_K,           KC_L,           KC_SCLN,        _______,
+                        _______,        KC_J,           KC_K,           KC_L,           DE_ODIA,        _______,
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
                                         _______,        _______,        _______,        _______,        _______,
         _______,        _______,
@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         XXXXXXX,        NEO_1_DEG,      NEO_2_SECT,     KC_3,           NEO_4_RAQUO,    NEO_5_LAQUO,    KC_INS,
         OSKC_CUT,       KC_X,           KC_V,           KC_L,           KC_C,           KC_W,           KC_DEL,
-        OSKC_COPY,      LGUI_T(KC_U),   LSFT_T(KC_I),   LALT_T(KC_A),   LCTL_T(KC_E),   KC_O,
+        OSKC_COPY,      HRM_N_U,        HRM_N_I,        HRM_N_A,        HRM_N_E,        KC_O,
         OSKC_PSTE,      DE_UDIA,        DE_ODIA,        DE_ADIA,        KC_P,           DE_Z,           KC_TAB,
         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_LGUI,
                                                                                         XXXXXXX,        XXXXXXX,
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
         KC_ESC,         NEO_6_DLLR,     NEO_7_EURO,     NEO_8_BDQUO,    NEO_9_LDQUO,    NEO_0_RDQUO,    NEO_MINS_EMDASH,
         KC_BSPC,        KC_K,           KC_H,           KC_G,           KC_F,           KC_Q,           DE_SS,
-                        KC_S,           RCTL_T(KC_N),   LALT_T(KC_R),   RSFT_T(KC_T),   RGUI_T(KC_D),   DE_Y,
+                        KC_S,           HRM_N_N,        HRM_N_R,        HRM_N_T,        HRM_N_D,        DE_Y,
         KC_ENT,         KC_B,           KC_M,           NEO_COMM_ENDASH,NEO_DOT_BULLET, KC_J,           TG(NUMPAD),
                                         MO(NUMFN),      KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
         XXXXXXX,        XXXXXXX,
@@ -152,7 +152,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
         XXXXXXX,        XXXXXXX,
         XXXXXXX,
-        XXXXXXX,        _______,        KC_NO
+        XXXXXXX,        _______,        XXXXXXX
     ),
     /* NEO4: Poor Man's Neo layer 4 */
     [NEO4] = LAYOUT_ergodox(
@@ -173,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
         XXXXXXX,        XXXXXXX,
         XXXXXXX,
-        XXXXXXX,        XXXXXXX,        KC_NO
+        XXXXXXX,        XXXXXXX,        XXXXXXX
     ),
     /* Keymap 2: Arrow and function keys
      *
@@ -208,7 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                         _______,        _______,        _______,
         // right hand
         _______,        KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,
-        _______,        XXXXXXX,        LCTL(KC_PMNS),  LCTL(KC_PPLS),  XXXXXXX,        XXXXXXX,        XXXXXXX,
+        _______,        XXXXXXX,        ZOOM_OUT,       ZOOM_IN,        XXXXXXX,        XXXXXXX,        XXXXXXX,
                         KC_LEFT,        KC_DOWN,        KC_UP,          KC_RGHT,        XXXXXXX,        XXXXXXX,
         _______,        KC_HOME,        KC_PGDN,        KC_PGUP,        KC_END,         XXXXXXX,        XXXXXXX,
                                         _______,        _______,        _______,        _______,        _______,
@@ -240,7 +240,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [NUMFN] = LAYOUT_ergodox(
         // left  hand
         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
-        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           _______,
         XXXXXXX,        KC_LGUI,        KC_LSFT,        KC_LALT,        KC_LCTL,        XXXXXXX,
         KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_F6,          _______,
         _______,        _______,        _______,        _______,        _______,
@@ -249,7 +249,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                         _______,        _______,        _______,
         // right  hand
         _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
-        _______,        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           TD(TD_MINS_GRAVE),
+        _______,        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           MINS_GRV,
                         XXXXXXX,        KC_RCTL,        KC_LALT,        KC_RSFT,        KC_RGUI,        XXXXXXX,
         _______,        KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,
                                         _______,        _______,        _______,        _______,        _______,
