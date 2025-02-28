@@ -1,7 +1,5 @@
-__attribute__ ((weak))
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
-    return true;
-}
+#include "quantum.h"
+#include "fmthoma.h"
 
 #define NEO_LAYER1_MACRO(unshifted, shifted) ({\
     uint8_t mods = get_mods(); \
@@ -135,10 +133,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) NEO_LAYER1_MACRO(KC_DOT, WINDOWS(
                 SEND_ALT_CODE("0149"),
                 register_unicode(0x2022)));
-            return false;
-
-        case VRSN:
-            if (record->event.pressed) SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
             return false;
     }
     return true;

@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "fmthoma.h"
+#include "fmthoma.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Keymap 0: Basic layer
@@ -379,6 +380,15 @@ void st7565_task_user(void) {
         st7565_write(qmk_logo, false);
         st7565_write("  Infinity  Ergodox  ", false);
     }
+}
+
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case VRSN:
+            if (record->event.pressed) SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+            return false;
+    }
+    return true;
 }
 
 /* blank layer (for copy-paste)

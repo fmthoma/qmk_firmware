@@ -1,3 +1,6 @@
+#pragma once
+
+#include "quantum.h"
 #include "keymap_german.h"
 
 #define TODO KC_NO
