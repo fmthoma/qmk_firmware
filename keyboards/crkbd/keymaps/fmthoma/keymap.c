@@ -137,6 +137,23 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+uint16_t layer_colors[][3] = {
+    [BASE]   = { RGB_OFF },
+    [NOHRM]  = { RGB_OFF },
+
+    [NEO1]   = { 0x20, 0x00, 0x00 },
+    [NEO3]   = { 0x20, 0x00, 0x00 },
+    [NEO4]   = { 0x20, 0x00, 0x00 },
+
+    [ARRW]   = { 0x80, 0x40, 0x40 },
+    [NUMFN]  = { 0x40, 0x40, 0x80 },
+    [NUMPAD] = { 0x40, 0x80, 0x40 },
+};
+
+void rgb_matrix_set_color_p(int index, uint16_t color[]) {
+    rgb_matrix_set_color(index, color[0], color[1], color[2]);
+}
+
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (get_highest_layer(layer_state) > 0) {
         uint8_t layer = get_highest_layer(layer_state);
@@ -147,10 +164,16 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
                 if (index >= led_min && index < led_max && index != NO_LED &&
                     keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                    rgb_matrix_set_color(index, RGB_GREEN);
+                    rgb_matrix_set_color_p(index, layer_colors[layer]);
                 }
             }
         }
     }
     return false;
+}
+
+void keyboard_post_init_user(void) {
+    // disable matrix glow effect, only use layer indicators
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+    rgb_matrix_sethsv_noeeprom(HSV_OFF);
 }
