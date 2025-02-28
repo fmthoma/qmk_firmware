@@ -26,9 +26,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+-------|    |-------+--------+--------+--------+--------+--------+--------|
     OSKC_COPY,   HRM_A,   HRM_S,   HRM_D,   HRM_F,    KC_G, KC_TAB,     KC_ENT ,    KC_H,   HRM_J,   HRM_K,   HRM_L,HRM_ODIA, DE_ADIA,
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
-    OSKC_PSTE,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_MINS,TG(NUMPAD),
+    OSKC_PSTE,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, DE_MINS,TG(NUMPAD),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, KC_RALT, KC_LSFT,   SPC_ARRW, KC_CAPS,MO(NUMFN)
+                                          KC_LGUI, KC_LSFT, KC_RALT,    KC_CAPS,SPC_ARRW,MO(NUMFN)
                                       //`--------------------------'  `--------------------------'
   ),
     [NOHRM] = LAYOUT_split_3x6_3_ex2(
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
     OSKC_PSTE, DE_UDIA, DE_ODIA, DE_ADIA,    KC_P,    DE_Z,                KC_B,    KC_M,NEO_COMM_ENDASH,NEO_DOT_BULLET,KC_J,TG(NUMPAD),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, KC_RALT, KC_LSFT,   SPC_ARRW, KC_CAPS,MO(NUMFN)
+                                          KC_LGUI, KC_LSFT,MO(NEO4),   MO(NEO3),SPC_ARRW,MO(NUMFN)
                                       //`--------------------------'  `--------------------------'
   ),
     [NEO3] = LAYOUT_split_3x6_3_ex2(
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
       XXXXXXX, DE_HASH,  DE_DLR, DE_PIPE, DE_TILD,  DE_GRV,                      DE_PLUS, DE_PERC, DE_DQUO, DE_QUOT, DE_SCLN, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, _______, XXXXXXX
+                                          XXXXXXX, XXXXXXX, XXXXXXX,    _______, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_ESC,   KC_TAB,  KC_INS,  KC_ENT, KC_UNDO,                      DE_COLN,   KC_P1,   KC_P2,   KC_P3, DE_SCLN, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, _______, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          XXXXXXX, XXXXXXX, _______,    XXXXXXX,   KC_P0, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
     [ARRW] = LAYOUT_split_3x6_3_ex2(
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,   KC_P1,   KC_P2,   KC_P3, KC_PENT, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,      KC_P0, _______, _______
+                                          _______, _______, _______,    _______,   KC_P0, _______
                                       //`--------------------------'  `--------------------------'
   ),
 };
