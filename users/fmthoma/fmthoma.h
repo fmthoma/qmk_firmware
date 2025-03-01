@@ -9,6 +9,10 @@
 #define WINDOWS(code_windows, code_default) \
     (detected_host_os() == OS_WINDOWS ? code_windows : code_default)
 
+#define NEO_MOD2 LSFT(MO(NEO2))
+#define NEO_MOD3 MO(NEO3)
+#define NEO_MOD4 MO(NEO4)
+
 #define HRM_A LGUI_T(KC_A)
 #define HRM_S LSFT_T(KC_S)
 #define HRM_D LALT_T(KC_D)
@@ -39,10 +43,11 @@ enum custom_layers {
     NOHRM,  // disabled home row mods, to resolve timing issues with Neo modifiers
 
     NEO1,   // Poor Man's Neo layer 1
+    NEO2,   // Poor Man's Neo layer 2; should be a fully transparent layer that only exists for the tri-layer state for NEO5
     NEO3,   // Poor Man's Neo layer 3
     NEO4,   // Poor Man's Neo layer 4
-//    NEO5,   // Poor Man's Neo layer 5
-//    NEO6,   // Poor Man's Neo layer 6
+    NEO5,   // Poor Man's Neo layer 5
+    NEO6,   // Poor Man's Neo layer 6
 
     ARRW,   // Arrow keys
     NUMFN,  // Number row & Fn keys

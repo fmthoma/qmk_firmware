@@ -137,3 +137,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    state = update_tri_layer_state(state, NEO2, NEO3, NEO5);
+    state = update_tri_layer_state(state, NEO3, NEO4, NEO6);
+    return state;
+}
