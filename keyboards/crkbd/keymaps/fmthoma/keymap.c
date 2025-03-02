@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
     OSKC_PSTE, DE_UDIA, DE_ODIA, DE_ADIA,    KC_P,    DE_Z,                KC_B,    KC_M,NEO_COMM_ENDASH,NEO_DOT_BULLET,KC_J,TG(NUMPAD),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,NEO_MOD2,NEO_MOD4,   NEO_MOD3,SPC_ARRW,MO(NUMFN)
+                                          KC_LGUI, KC_LSFT,MO(NEO4),   MO(NEO3),SPC_ARRW,MO(NUMFN)
                                       //`--------------------------'  `--------------------------'
   ),
     [NEO2] = LAYOUT_split_3x6_3_ex2( // Fully transparent layer, purely to make tri-layer state work

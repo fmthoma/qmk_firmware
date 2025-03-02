@@ -59,10 +59,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     switch (keycode) {
         case KC_CAPS:
-            if (record->event.pressed) {
-                layer_on(NOHRM);
-            } else {
-                layer_off(NOHRM);
+            if (record->event.pressed) layer_on(NOHRM);
+            else layer_off(NOHRM);
+            return true; // pass the key on
+        case KC_LSFT:
+            if (layer_state_is(NEO1)) {
+                if (record->event.pressed) layer_on(NEO2);
+                else layer_off(NEO2);
             }
             return true; // pass the key on
 

@@ -9,10 +9,6 @@
 #define WINDOWS(code_windows, code_default) \
     (detected_host_os() == OS_WINDOWS ? code_windows : code_default)
 
-#define NEO_MOD2 LSFT(MO(NEO2))
-#define NEO_MOD3 MO(NEO3)
-#define NEO_MOD4 MO(NEO4)
-
 #define HRM_A LGUI_T(KC_A)
 #define HRM_S LSFT_T(KC_S)
 #define HRM_D LALT_T(KC_D)
