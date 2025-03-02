@@ -1,5 +1,6 @@
 #include "quantum.h"
 #include "keymap_common.h"
+#include "tap_dance.h"
 
 #define NEO_LAYER1_MACRO(unshifted, shifted) ({\
     uint8_t mods = get_mods(); \
@@ -236,4 +237,5 @@ combo_t key_combos[] = {
 tap_dance_action_t tap_dance_actions[] = {
     [TD_MINS_GRAVE]  = ACTION_TAP_DANCE_DOUBLE(DE_SS,   DE_ACUT), // - -> `
     [TD_SZLIG_ACUTE] = ACTION_TAP_DANCE_DOUBLE(DE_UDIA, DE_PLUS), // ß -> ´
+    [TD_GUI_INS]     = ACTION_TAP_DANCE_FN_ADVANCED(NULL, lgui_tap_finished, lgui_tap_reset), // tap: INS, tap&hold: LGUI, double-tap&hold: CTRL+LGUI, triple-tap&hold: CTRL+SHIFT+LGUI
 };

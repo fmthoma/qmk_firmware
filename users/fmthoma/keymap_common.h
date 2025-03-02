@@ -27,7 +27,7 @@
 #define HRM_N_T LALT_T(KC_T)
 #define HRM_N_D RGUI_T(KC_D)
 
-#define GUI_INS LGUI_T(KC_INS)
+#define GUI_INS TD(TD_GUI_INS)
 #define SPC_ARRW LT(ARRW, KC_SPC)
 #define ESC_FN LT(NUMFN, KC_ESC)
 #define MINS_GRV TD(TD_MINS_GRAVE)
@@ -82,6 +82,7 @@ enum custom_keycodes {
 enum {
     TD_MINS_GRAVE,
     TD_SZLIG_ACUTE,
+    TD_GUI_INS,
 };
 
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
