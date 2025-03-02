@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
     OSKC_PSTE,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, DE_MINS,TG(NUMPAD),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, KC_LSFT, KC_RALT,    KC_CAPS,SPC_ARRW,MO(NUMFN)
+                                          GUI_INS, KC_LSFT, KC_RALT,    KC_CAPS,SPC_ARRW,  ESC_FN
                                       //`--------------------------'  `--------------------------'
   ),
     [NOHRM] = LAYOUT_split_3x6_3_ex2(
@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+-------'    `-------+--------+--------+--------+--------+--------+--------|
     OSKC_PSTE, DE_UDIA, DE_ODIA, DE_ADIA,    KC_P,    DE_Z,                KC_B,    KC_M,NEO_COMM_ENDASH,NEO_DOT_BULLET,KC_J,TG(NUMPAD),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, KC_LSFT,MO(NEO4),   MO(NEO3),SPC_ARRW,MO(NUMFN)
+                                          GUI_INS, KC_LSFT,MO(NEO4),   MO(NEO3),SPC_ARRW,  ESC_FN
                                       //`--------------------------'  `--------------------------'
   ),
     [NEO2] = LAYOUT_split_3x6_3_ex2( // Fully transparent layer, purely to make tri-layer state work

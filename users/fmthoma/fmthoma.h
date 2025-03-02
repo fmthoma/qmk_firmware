@@ -27,7 +27,9 @@
 #define HRM_N_T LALT_T(KC_T)
 #define HRM_N_D RGUI_T(KC_D)
 
+#define GUI_INS LGUI_T(KC_INS)
 #define SPC_ARRW LT(ARRW, KC_SPC)
+#define ESC_FN LT(NUMFN, KC_ESC)
 #define MINS_GRV TD(TD_MINS_GRAVE)
 #define SS_ACUTE TD(TD_SZLIG_ACUTE)
 
