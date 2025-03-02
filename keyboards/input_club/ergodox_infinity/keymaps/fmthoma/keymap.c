@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         OSKC_CUT,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_DEL,
         OSKC_COPY,      HRM_A,          HRM_S,          HRM_D,          HRM_F,          KC_G,
         OSKC_PSTE,      KC_Y,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,
-        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_LGUI,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        GUI_INS,
                                                                                         XXXXXXX,        XXXXXXX,
                                                                                                         KC_LALT,
                                                                         KC_LSFT,        KC_RALT,        KC_LCTL,
@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           SS_ACUTE,
                         KC_H,           HRM_J,          HRM_K,          HRM_L,          HRM_ODIA,       DE_ADIA,
         KC_ENT,         KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        TG(NUMPAD),
-                                        MO(NUMFN),      KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
+                                        ESC_FN,         KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
         XXXXXXX,        XXXXXXX,
         XXXXXXX,
         KC_RCTL,        KC_CAPS,        SPC_ARRW
@@ -119,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         OSKC_CUT,       KC_X,           KC_V,           KC_L,           KC_C,           KC_W,           KC_DEL,
         OSKC_COPY,      HRM_N_U,        HRM_N_I,        HRM_N_A,        HRM_N_E,        KC_O,
         OSKC_PSTE,      DE_UDIA,        DE_ODIA,        DE_ADIA,        KC_P,           DE_Z,           KC_TAB,
-        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_LGUI,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        GUI_INS,
                                                                                         XXXXXXX,        XXXXXXX,
                                                                                                         KC_LALT,
                                                                         KC_LSFT,        MO(NEO4),       KC_LCTL,
@@ -128,10 +128,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BSPC,        KC_K,           KC_H,           KC_G,           KC_F,           KC_Q,           DE_SS,
                         KC_S,           HRM_N_N,        HRM_N_R,        HRM_N_T,        HRM_N_D,        DE_Y,
         KC_ENT,         KC_B,           KC_M,           NEO_COMM_ENDASH,NEO_DOT_BULLET, KC_J,           TG(NUMPAD),
-                                        MO(NUMFN),      KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
+                                        ESC_FN,         KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
         XXXXXXX,        XXXXXXX,
         XXXXXXX,
-        KC_RCTL,        MO(NEO3),       LT(ARRW, KC_SPC)
+        KC_RCTL,        MO(NEO3),       SPC_ARRW
+    ),
+    [NEO2] = LAYOUT_ergodox( // Fully transparent layer, purely to make tri-layer state work
+        // left hand
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,
+                                                                                        _______,        _______,
+                                                                                                        _______,
+                                                                        _______,        XXXXXXX,        _______,
+        // right hand
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+                        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+                                        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,
+        _______,
+        _______,        _______,        _______
     ),
     /* NEO3: Poor Man's Neo layer 3 */
     [NEO3] = LAYOUT_ergodox(
@@ -173,7 +193,47 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
         XXXXXXX,        XXXXXXX,
         XXXXXXX,
-        XXXXXXX,        XXXXXXX,        XXXXXXX
+        XXXXXXX,        _______,        KC_P0
+    ),
+    [NEO5] = LAYOUT_ergodox(
+        // left hand
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                                                                                        XXXXXXX,        XXXXXXX,
+                                                                                                        XXXXXXX,
+                                                                        _______,        XXXXXXX,        XXXXXXX,
+        // right hand
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        XXXXXXX,
+        XXXXXXX,
+        XXXXXXX,        _______,        XXXXXXX
+    ),
+    [NEO6] = LAYOUT_ergodox( // Fully transparent layer, purely to make tri-layer state work
+        // left hand
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                                                                                        XXXXXXX,        XXXXXXX,
+                                                                                                        XXXXXXX,
+                                                                        XXXXXXX,        _______,        XXXXXXX,
+        // right hand
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        XXXXXXX,
+        XXXXXXX,
+        XXXXXXX,        _______,        XXXXXXX
     ),
     /* Keymap 2: Arrow and function keys
      *
