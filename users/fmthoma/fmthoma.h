@@ -10,21 +10,21 @@
     (detected_host_os() == OS_WINDOWS ? code_windows : code_default)
 
 #define HRM_A LGUI_T(KC_A)
-#define HRM_S LSFT_T(KC_S)
-#define HRM_D LALT_T(KC_D)
+#define HRM_S LALT_T(KC_S)
+#define HRM_D LSFT_T(KC_D)
 #define HRM_F LCTL_T(KC_F)
 #define HRM_J RCTL_T(KC_J)
-#define HRM_K LALT_T(KC_K)
-#define HRM_L RSFT_T(KC_L)
+#define HRM_K RSFT_T(KC_K)
+#define HRM_L LALT_T(KC_L)
 #define HRM_ODIA RGUI_T(DE_ODIA)
 
 #define HRM_N_U LGUI_T(KC_U)
-#define HRM_N_I LSFT_T(KC_I)
-#define HRM_N_A LALT_T(KC_A)
+#define HRM_N_I LALT_T(KC_I)
+#define HRM_N_A LSFT_T(KC_A)
 #define HRM_N_E LCTL_T(KC_E)
 #define HRM_N_N RCTL_T(KC_N)
-#define HRM_N_R LALT_T(KC_R)
-#define HRM_N_T RSFT_T(KC_T)
+#define HRM_N_R RSFT_T(KC_R)
+#define HRM_N_T LALT_T(KC_T)
 #define HRM_N_D RGUI_T(KC_D)
 
 #define SPC_ARRW LT(ARRW, KC_SPC)
@@ -85,16 +85,16 @@ enum {
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 
 const uint16_t PROGMEM er_del[]        = { KC_E,         KC_R,            COMBO_END };
-const uint16_t PROGMEM df_tab[]        = { LALT_T(KC_D), LCTL_T(KC_F),    COMBO_END };
+const uint16_t PROGMEM df_tab[]        = { LSFT_T(KC_D), LCTL_T(KC_F),    COMBO_END };
 const uint16_t PROGMEM cv_ins[]        = { KC_C,         KC_V,            COMBO_END };
 const uint16_t PROGMEM ui_bsp[]        = { KC_U,         KC_I,            COMBO_END };
-const uint16_t PROGMEM jk_ent[]        = { RCTL_T(KC_J), LALT_T(KC_K),    COMBO_END };
+const uint16_t PROGMEM jk_ent[]        = { RCTL_T(KC_J), RSFT_T(KC_K),    COMBO_END };
 const uint16_t PROGMEM mc_esc[]        = { KC_M,         KC_COMM,         COMBO_END };
 const uint16_t PROGMEM neo_er_del[]    = { KC_L,         KC_C,            COMBO_END };
-const uint16_t PROGMEM neo_df_tab[]    = { LALT_T(KC_A), LCTL_T(KC_E),    COMBO_END };
+const uint16_t PROGMEM neo_df_tab[]    = { LSFT_T(KC_A), LCTL_T(KC_E),    COMBO_END };
 const uint16_t PROGMEM neo_cv_ins[]    = { DE_ADIA,      KC_P,            COMBO_END };
 const uint16_t PROGMEM neo_ui_bsp[]    = { KC_H,         KC_G,            COMBO_END };
-const uint16_t PROGMEM neo_jk_ent[]    = { RCTL_T(KC_N), LALT_T(KC_R),    COMBO_END };
+const uint16_t PROGMEM neo_jk_ent[]    = { RCTL_T(KC_N), RSFT_T(KC_R),    COMBO_END };
 const uint16_t PROGMEM neo_mc_esc[]    = { KC_M,         NEO_COMM_ENDASH, COMBO_END };
 
 const uint16_t PROGMEM rt_del[]        = { KC_R,         KC_T,            COMBO_END };
