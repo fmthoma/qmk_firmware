@@ -81,6 +81,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING (ALT_CODE("0133")),
                 register_unicode(0x2026));
             return false;
+        case NEO_RDA:
+            if (record->event.pressed) WINDOWS(
+                SEND_STRING (ALT_CODE("26")), // Just a single arrow, but better than nothing
+                register_unicode(0x21D2));
+            return false;
+        case NEO_LDA:
+            if (record->event.pressed) WINDOWS(
+                SEND_STRING (ALT_CODE("27")), // Just a single arrow, but better than nothing
+                register_unicode(0x21D0));
+            return false;
+        case NEO_LRDA:
+            if (record->event.pressed) WINDOWS(
+                SEND_STRING (ALT_CODE("29")), // Just a single arrow, but better than nothing
+                register_unicode(0x21D4));
+            return false;
+
+        case ALPHA:
+            if (record->event.pressed) WINDOWS(
+                SEND_STRING (ALT_CODE("224")),
+                register_unicode(0x03B1));
+            return false;
+        case EPSILON:
+            if (record->event.pressed) WINDOWS(
+                SEND_STRING (ALT_CODE("238")),
+                register_unicode(0x03B5));
+            return false;
 
         case NEO_1_DEG:
             if (record->event.pressed) neo_layer1_shifted(KC_1, DE_CIRC);

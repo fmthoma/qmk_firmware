@@ -60,6 +60,9 @@ enum custom_keycodes {
     OSKC_COPY,
     OSKC_PSTE,
     NEO_ELL,
+    NEO_RDA,
+    NEO_LDA,
+    NEO_LRDA,
     NEO_1_DEG,
     NEO_2_SECT,
     NEO_3_LTRS, // not implemented
@@ -73,6 +76,8 @@ enum custom_keycodes {
     NEO_MINS_EMDASH,
     NEO_COMM_ENDASH,
     NEO_DOT_BULLET,
+    ALPHA,
+    EPSILON,
 };
 
 // Tap Dance
