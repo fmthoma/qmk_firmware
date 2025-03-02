@@ -1,6 +1,7 @@
 #include "quantum.h"
 #include "keymap_common.h"
 #include "tap_dance.h"
+#include "fmthoma.h"
 
 #define NEO_LAYER1_MACRO(unshifted, shifted) ({\
     uint8_t mods = get_mods(); \
@@ -169,6 +170,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+    state = layer_state_set_keymap(state);
     state = update_tri_layer_state(state, NEO2, NEO3, NEO5);
     state = update_tri_layer_state(state, NEO3, NEO4, NEO6);
     return state;

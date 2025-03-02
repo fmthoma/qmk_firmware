@@ -84,5 +84,3 @@ enum {
     TD_SZLIG_ACUTE,
     TD_GUI_INS,
 };
-
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record);

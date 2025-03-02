@@ -1,7 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "fmthoma.h"
-#include "fmthoma.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Keymap 0: Basic layer
@@ -323,7 +322,7 @@ void matrix_scan_user(void) {
     }
 }
 
-layer_state_t layer_state_set_user(layer_state_t state) {
+layer_state_t layer_state_set_keymap(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case ARRW:
             ergodox_infinity_lcd_color(UINT16_MAX, UINT16_MAX / 2, UINT16_MAX / 2);
