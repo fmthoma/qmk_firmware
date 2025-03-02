@@ -3,4 +3,4 @@ TAP_DANCE_ENABLE = yes
 OS_DETECTION_ENABLE = yes
 UNICODE_COMMON = yes
 UNICODE_ENABLE = yes
-INTROSPECTION_KEYMAP_C = keymap_common.c
+INTROSPECTION_KEYMAP_C = users/fmthoma/keymap_common.c
