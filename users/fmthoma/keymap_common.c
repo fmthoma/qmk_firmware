@@ -1,5 +1,5 @@
 #include "quantum.h"
-#include "fmthoma.h"
+#include "keymap_common.h"
 
 #define NEO_LAYER1_MACRO(unshifted, shifted) ({\
     uint8_t mods = get_mods(); \
