@@ -27,11 +27,16 @@
 #define HRM_N_T LALT_T(KC_T)
 #define HRM_N_D RGUI_T(KC_D)
 
-#define GUI_INS TD(TD_GUI_INS)
+#define GUI TD(TD_GUI)
+#define INS_RALT RALT_T(KC_INS)
 #define SPC_ARRW LT(ARRW, KC_SPC)
 #define ESC_FN LT(NUMFN, KC_ESC)
+#define MUTE_FN LT(NUMFN, LGUI(KC_M))
+#define ESC_CAPS TD(TD_ESC_CAPS)
 #define MINS_GRV TD(TD_MINS_GRAVE)
 #define SS_ACUTE TD(TD_SZLIG_ACUTE)
+#define N_ESC_M3 LT(NEO3, KC_ESC)
+#define N_INS_M4 LT(NEO4, KC_INS)
 
 #define ZOOM_OUT LCTL(KC_PMNS)
 #define ZOOM_IN  LCTL(KC_PPLS)
@@ -82,5 +87,6 @@ enum custom_keycodes {
 enum {
     TD_MINS_GRAVE,
     TD_SZLIG_ACUTE,
-    TD_GUI_INS,
+    TD_GUI,
+    TD_ESC_CAPS,
 };

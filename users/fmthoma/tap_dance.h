@@ -13,12 +13,10 @@ typedef enum {
     TD_TRIPLE_HOLD
 } td_state_t;
 
-typedef struct {
-    bool is_press_action;
-    td_state_t state;
-} td_tap_t;
-
 td_state_t cur_dance(tap_dance_state_t *state);
 
-void lgui_tap_finished(tap_dance_state_t *state, void *user_data);
-void lgui_tap_reset(tap_dance_state_t *state, void *user_data);
+void gui_tap_finished(tap_dance_state_t *state, void *user_data);
+void gui_tap_reset(tap_dance_state_t *state, void *user_data);
+
+void esc_caps_tap_finished(tap_dance_state_t *state, void *user_data);
+void esc_caps_tap_reset(tap_dance_state_t *state, void *user_data);

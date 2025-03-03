@@ -213,5 +213,6 @@ combo_t key_combos[] = {
 tap_dance_action_t tap_dance_actions[] = {
     [TD_MINS_GRAVE]  = ACTION_TAP_DANCE_DOUBLE(DE_SS,   DE_ACUT), // - -> `
     [TD_SZLIG_ACUTE] = ACTION_TAP_DANCE_DOUBLE(DE_UDIA, DE_PLUS), // ß -> ´
-    [TD_GUI_INS]     = ACTION_TAP_DANCE_FN_ADVANCED(NULL, lgui_tap_finished, lgui_tap_reset), // tap: INS, tap&hold: LGUI, double-tap&hold: CTRL+LGUI, triple-tap&hold: CTRL+SHIFT+LGUI
+    [TD_GUI]         = ACTION_TAP_DANCE_FN_ADVANCED(NULL, gui_tap_finished, gui_tap_reset), // tap&hold: LGUI, double-tap&hold: CTRL+LGUI, triple-tap&hold: CTRL+SHIFT+LGUI
+    [TD_ESC_CAPS]    = ACTION_TAP_DANCE_FN_ADVANCED(NULL, esc_caps_tap_finished, esc_caps_tap_reset), // tap: ESC, tap&hold: CAPS
 };

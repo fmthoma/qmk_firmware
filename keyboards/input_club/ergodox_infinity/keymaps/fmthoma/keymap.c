@@ -30,10 +30,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         OSKC_CUT,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_DEL,
         OSKC_COPY,      HRM_A,          HRM_S,          HRM_D,          HRM_F,          KC_G,
         OSKC_PSTE,      KC_Y,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,
-        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        GUI_INS,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        GUI,
                                                                                         XXXXXXX,        XXXXXXX,
                                                                                                         KC_LALT,
-                                                                        KC_LSFT,        KC_RALT,        KC_LCTL,
+                                                                        KC_LSFT,        INS_RALT,       KC_LCTL,
         // right hand
         KC_ESC,         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           MINS_GRV,
         KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           SS_ACUTE,
@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         ESC_FN,         KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
         XXXXXXX,        XXXXXXX,
         XXXXXXX,
-        KC_RCTL,        KC_CAPS,        SPC_ARRW
+        KC_RCTL,        ESC_CAPS,       SPC_ARRW
     ),
     /* Keymap 1: Disabled home row mods
      * This is for resolving timing issues with Neo modifiers on thumb keys:
@@ -119,10 +119,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         OSKC_CUT,       KC_X,           KC_V,           KC_L,           KC_C,           KC_W,           KC_DEL,
         OSKC_COPY,      HRM_N_U,        HRM_N_I,        HRM_N_A,        HRM_N_E,        KC_O,
         OSKC_PSTE,      DE_UDIA,        DE_ODIA,        DE_ADIA,        KC_P,           DE_Z,           KC_TAB,
-        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        GUI_INS,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        GUI,
                                                                                         XXXXXXX,        XXXXXXX,
                                                                                                         KC_LALT,
-                                                                        KC_LSFT,        MO(NEO4),       KC_LCTL,
+                                                                        KC_LSFT,        N_INS_M4,       KC_LCTL,
         // right hand
         KC_ESC,         NEO_6_DLLR,     NEO_7_EURO,     NEO_8_BDQUO,    NEO_9_LDQUO,    NEO_0_RDQUO,    NEO_MINS_EMDASH,
         KC_BSPC,        KC_K,           KC_H,           KC_G,           KC_F,           KC_Q,           DE_SS,
@@ -131,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         ESC_FN,         KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
         XXXXXXX,        XXXXXXX,
         XXXXXXX,
-        KC_RCTL,        MO(NEO3),       SPC_ARRW
+        KC_RCTL,        N_ESC_M3,       SPC_ARRW
     ),
     [NEO2] = LAYOUT_ergodox( // Fully transparent layer, purely to make tri-layer state work
         // left hand
