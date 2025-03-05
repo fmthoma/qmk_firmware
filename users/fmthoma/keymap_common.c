@@ -61,6 +61,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     switch (keycode) {
         case KC_CAPS:
+        case ESC_CAPS:
+        case KC_RALT:
+        case INS_RALT:
             if (record->event.pressed) layer_on(NOHRM);
             else layer_off(NOHRM);
             return true; // pass the key on
@@ -215,4 +218,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_SZLIG_ACUTE] = ACTION_TAP_DANCE_DOUBLE(DE_UDIA, DE_PLUS), // ß -> ´
     [TD_GUI]         = ACTION_TAP_DANCE_FN_ADVANCED(NULL, gui_tap_finished, gui_tap_reset), // tap&hold: LGUI, double-tap&hold: CTRL+LGUI, triple-tap&hold: CTRL+SHIFT+LGUI
     [TD_ESC_CAPS]    = ACTION_TAP_DANCE_FN_ADVANCED(NULL, esc_caps_tap_finished, esc_caps_tap_reset), // tap: ESC, tap&hold: CAPS
+    [TD_INS_RALT]    = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ins_ralt_tap_finished, ins_ralt_tap_reset), // tap: ESC, tap&hold: CAPS
+    [TD_MUTE_NUMFN]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, mute_numfn_tap_finished, mute_numfn_tap_reset), // tap: Mute (LGUI+M), tap&hold: NUMFN
 };

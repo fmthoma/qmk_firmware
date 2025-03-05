@@ -28,10 +28,10 @@
 #define HRM_N_D RGUI_T(KC_D)
 
 #define GUI TD(TD_GUI)
-#define INS_RALT RALT_T(KC_INS)
+#define INS_RALT TD(TD_INS_RALT)
 #define SPC_ARRW LT(ARRW, KC_SPC)
 #define ESC_FN LT(NUMFN, KC_ESC)
-#define MUTE_FN LT(NUMFN, LGUI(KC_M))
+#define MUTE_FN TD(TD_MUTE_NUMFN)
 #define ESC_CAPS TD(TD_ESC_CAPS)
 #define MINS_GRV TD(TD_MINS_GRAVE)
 #define SS_ACUTE TD(TD_SZLIG_ACUTE)
@@ -89,4 +89,6 @@ enum {
     TD_SZLIG_ACUTE,
     TD_GUI,
     TD_ESC_CAPS,
+    TD_INS_RALT,
+    TD_MUTE_NUMFN,
 };
