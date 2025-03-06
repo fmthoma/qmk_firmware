@@ -69,6 +69,7 @@ void mute_numfn_tap_finished(tap_dance_state_t *state, void *user_data) {
     switch (mute_numfn_tap_state) {
         case TD_SINGLE_TAP: register_code16(LGUI(KC_M)); break;
         case TD_SINGLE_HOLD: layer_on(NUMFN); break;
+        case TD_DOUBLE_TAP: layer_invert(NUMFN); break;
         default: break;
     }
 }
