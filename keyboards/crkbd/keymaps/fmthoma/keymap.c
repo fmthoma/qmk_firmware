@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼───────╯    ╰───────┼────────┼────────┼────────┼────────┼────────┼────────┤
     OSKC_PSTE,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, DE_MINS,TG(NUMPAD),
   //╰────────┴────────┴────────┴────┬───┴────┬───┴────┬───┴────╮          ╭────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────╯
-                                          GUI, KC_LSFT,INS_RALT,           ESC_CAPS,SPC_ARRW, MUTE_FN
+                                          GUI, KC_LSFT, KC_RALT,            KC_CAPS,SPC_ARRW, MUTE_FN
   //                                ╰────────┴────────┴────────╯          ╰────────┴────────┴────────╯
   ),
     [NOHRM] = LAYOUT_split_3x6_3_ex2(

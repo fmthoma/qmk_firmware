@@ -192,6 +192,10 @@ const uint16_t PROGMEM neo_zu_bsp[]    = { KC_K,         KC_H,            COMBO_
 const uint16_t PROGMEM neo_hj_ent[]    = { KC_S,         RCTL_T(KC_N),    COMBO_END };
 const uint16_t PROGMEM neo_nm_esc[]    = { KC_B,         KC_M,            COMBO_END };
 
+const uint16_t PROGMEM cv_ins[]        = { KC_C,         KC_V,            COMBO_END };
+const uint16_t PROGMEM neo_cv_ins[]    = { DE_ADIA,      KC_P,            COMBO_END };
+const uint16_t PROGMEM m_comma_esc[]   = { KC_M,         KC_COMMA,        COMBO_END };
+
 const uint16_t PROGMEM qwer_boot[]     = { KC_Q, KC_W, KC_E, KC_R,        COMBO_END };
 const uint16_t PROGMEM neo_qwer_boot[] = { KC_X, KC_V, KC_L, KC_C,        COMBO_END };
 
@@ -208,6 +212,10 @@ combo_t key_combos[] = {
     COMBO(neo_zu_bsp, KC_BSPC),
     COMBO(neo_hj_ent, KC_ENT),
     COMBO(neo_nm_esc, KC_ESC),
+
+    COMBO(cv_ins,      KC_INS),
+    COMBO(neo_cv_ins,  KC_INS),
+    COMBO(m_comma_esc, KC_ESC),
 
     COMBO(qwer_boot, QK_BOOT),
     COMBO(neo_qwer_boot, QK_BOOT),
