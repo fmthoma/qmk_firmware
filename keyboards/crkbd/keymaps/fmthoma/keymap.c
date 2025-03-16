@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
     [ARRW] = LAYOUT_split_3x6_3_ex2(
   //╭────────┬────────┬────────┬────────┬────────┬────────┬───────╮    ╭───────┬────────┬────────┬────────┬────────┬────────┬────────╮
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______,     _______, XXXXXXX,ZOOM_OUT, ZOOM_IN, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______,     _______,HST_PREV,NEXT_TAB,PREV_TAB,HST_NEXT, XXXXXXX, XXXXXXX,
   //├────────┼────────┼────────┼────────┼────────┼────────┼───────┤    ├───────┼────────┼────────┼────────┼────────┼────────┼────────┤
       _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,_______,     _______, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
   //├────────┼────────┼────────┼────────┼────────┼────────┼───────╯    ╰───────┼────────┼────────┼────────┼────────┼────────┼────────┤

@@ -37,6 +37,10 @@
 #define SS_ACUTE TD(TD_SZLIG_ACUTE)
 #define N_ESC_M3 LT(NEO3, KC_ESC)
 #define N_INS_M4 LT(NEO4, KC_INS)
+#define PREV_TAB C(S(KC_TAB))
+#define NEXT_TAB C(KC_TAB)
+#define HST_PREV A(KC_LEFT)
+#define HST_NEXT A(KC_RGHT)
 
 #define ZOOM_OUT LCTL(KC_PMNS)
 #define ZOOM_IN  LCTL(KC_PPLS)
