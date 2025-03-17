@@ -221,6 +221,11 @@ combo_t key_combos[] = {
     COMBO(neo_qwer_boot, QK_BOOT),
 };
 
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    // Disable combos on NOHRM layer (i.e. in particular, when any modifier is pressed)
+    return !layer_state_is(NOHRM);
+}
+
 tap_dance_action_t tap_dance_actions[] = {
     [TD_MINS_GRAVE]  = ACTION_TAP_DANCE_DOUBLE(DE_SS,   DE_ACUT), // - -> `
     [TD_SZLIG_ACUTE] = ACTION_TAP_DANCE_DOUBLE(DE_UDIA, DE_PLUS), // ß -> ´
