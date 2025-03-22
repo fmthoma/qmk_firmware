@@ -31,7 +31,7 @@
 #define INS_RALT TD(TD_INS_RALT)
 #define SPC_ARRW LT(ARRW, KC_SPC)
 #define ESC_FN LT(NUMFN, KC_ESC)
-#define MUTE_FN TD(TD_MUTE_NUMFN)
+#define MO_NUMFN TD(TD_NUMFN)
 #define ESC_CAPS TD(TD_ESC_CAPS)
 #define MINS_GRV TD(TD_MINS_GRAVE)
 #define SS_ACUTE TD(TD_SZLIG_ACUTE)
@@ -94,5 +94,5 @@ enum {
     TD_GUI,
     TD_ESC_CAPS,
     TD_INS_RALT,
-    TD_MUTE_NUMFN,
+    TD_NUMFN,
 };

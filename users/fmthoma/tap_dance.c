@@ -62,23 +62,19 @@ void esc_caps_tap_reset(tap_dance_state_t *state, void *user_data) {
     }
 }
 
-static td_state_t mute_numfn_tap_state = TD_NONE;
+static td_state_t numfn_tap_state = TD_NONE;
 
-void mute_numfn_tap_finished(tap_dance_state_t *state, void *user_data) {
-    mute_numfn_tap_state = cur_dance(state);
-    switch (mute_numfn_tap_state) {
-        case TD_SINGLE_TAP: layer_invert(NUMFN); break;
-        case TD_SINGLE_HOLD: layer_on(NUMFN); break;
-        case TD_DOUBLE_TAP: register_code16(LGUI(KC_M)); break;
-        default: break;
+void numfn_tap_finished(tap_dance_state_t *state, void *user_data) {
+    numfn_tap_state = cur_dance(state);
+    switch (numfn_tap_state) {
+        default: layer_on(NUMFN); break;
     }
 }
 
-void mute_numfn_tap_reset(tap_dance_state_t *state, void *user_data) {
-    switch (mute_numfn_tap_state) {
-        case TD_SINGLE_HOLD: layer_off(NUMFN); break;
-        case TD_DOUBLE_TAP: unregister_code16(LGUI(KC_M)); break;
-        default: break;
+void numfn_tap_reset(tap_dance_state_t *state, void *user_data) {
+    switch (numfn_tap_state) {
+        case TD_DOUBLE_TAP: break;
+        default: layer_off(NUMFN); break;
     }
 }
 

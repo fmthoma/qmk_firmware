@@ -21,8 +21,8 @@ void gui_tap_reset(tap_dance_state_t *state, void *user_data);
 void esc_caps_tap_finished(tap_dance_state_t *state, void *user_data);
 void esc_caps_tap_reset(tap_dance_state_t *state, void *user_data);
 
-void mute_numfn_tap_finished(tap_dance_state_t *state, void *user_data);
-void mute_numfn_tap_reset(tap_dance_state_t *state, void *user_data);
+void numfn_tap_finished(tap_dance_state_t *state, void *user_data);
+void numfn_tap_reset(tap_dance_state_t *state, void *user_data);
 
 void ins_ralt_tap_finished(tap_dance_state_t *state, void *user_data);
 void ins_ralt_tap_reset(tap_dance_state_t *state, void *user_data);
