@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BSPC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           SS_ACUTE,
                         KC_H,           HRM_J,          HRM_K,          HRM_L,          HRM_ODIA,       DE_ADIA,
         KC_ENT,         KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        TG(NUMPAD),
-                                        MUTE_FN,        KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
+                                        MO_NUMFN,       KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
         XXXXXXX,        XXXXXXX,
         XXXXXXX,
         KC_RCTL,        ESC_CAPS,       SPC_ARRW
@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BSPC,        KC_K,           KC_H,           KC_G,           KC_F,           KC_Q,           DE_SS,
                         KC_S,           HRM_N_N,        HRM_N_R,        HRM_N_T,        HRM_N_D,        DE_Y,
         KC_ENT,         KC_B,           KC_M,           NEO_COMM_ENDASH,NEO_DOT_BULLET, KC_J,           TG(NUMPAD),
-                                        MUTE_FN,        KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
+                                        MO_NUMFN,       KC_F4,          XXXXXXX,        XXXXXXX,        RCS(KC_F12),
         XXXXXXX,        XXXXXXX,
         XXXXXXX,
         KC_RCTL,        N_ESC_M3,       SPC_ARRW
